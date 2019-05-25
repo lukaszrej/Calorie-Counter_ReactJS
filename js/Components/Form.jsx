@@ -3,18 +3,19 @@ import React from 'react';
 class Form extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props, 'propssss');
         this.state = {
-            weight: 70,
-            height: 175,
-            age: 30,
-            gender: '',
-            activity: 1.2,
+            weight: this.props.userDetails.weight,
+            height: this.props.userDetails.height,
+            age: this.props.userDetails.age,
+            gender: 'Male',
+            activity: this.props.userDetails.activity
         }
     }
 
     changeInput = (e) => {
         const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.value;
         const name = target.name;
 
         this.setState({
@@ -46,7 +47,7 @@ class Form extends React.Component {
         if (typeof updateUser === 'function') {
             updateUser(newCurrUserDetails);}
 
-        console.log(newCurrUserDetails.weight, 'weight from FORM')
+        console.log(newCurrUserDetails.weight, 'weight from FORM');
 
         localStorage.setItem('userDetails', 'xxx');
     };
@@ -70,10 +71,13 @@ class Form extends React.Component {
                     </p>
                     <p>Gender</p>
                     <div style={{display: "flex"}}>
-                        <div><input name="gender" type="radio" value={"Male"} onChange={this.changeInput}/>
+                        <div><input name="gender" type="radio" value={"Male"} onChange={this.changeInput}
+                                    checked={(this.state.gender === "Male") }/>
                             <label htmlFor={"Male"}>Male</label>
                         </div>
-                        <div><input name="gender" type="radio" value={"Female"} onChange={this.changeInput}/>
+                        <div><input name="gender" type="radio" value={"Female"} onChange={this.changeInput}
+                                    checked={(this.state.gender === "Female") }
+                        />
                             <label htmlFor={"Female"}>Female</label>
                         </div>
                     </div>

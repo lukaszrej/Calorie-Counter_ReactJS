@@ -50,7 +50,8 @@ class App extends React.Component {
 
     setFormSubmitted() {
         this.setState({
-            formSubmitted: true
+            formSubmitted: true,
+            showReportSite: true
         })
     }
 
