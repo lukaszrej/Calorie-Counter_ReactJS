@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Components/Header.jsx';
 import Form from "./Components/Form.jsx";
+import AddReport from "../../Test/js/Components/AddReport";
 
 class App extends React.Component {
     constructor(props) {
@@ -15,7 +16,8 @@ class App extends React.Component {
                 activity: 1.2,
                 dailyNeed: '1234.00',
             },
-            formSubmitted: false
+            formSubmitted: false,
+            showReportSite: false
         }
     }
 
@@ -61,7 +63,9 @@ class App extends React.Component {
                       setFormSubmitted={this.setFormSubmitted.bind(this)}
                       updateUser={this.updateUser.bind(this)}
                 />}
-
+                <AddReport dailyNeed={this.state.userDetails.dailyNeed}
+                           setFormSubmitted={this.setFormSubmitted.bind(this)}/>}
+                <div>{console.log(this.state.userDetails ,'state currUserDetail from App')}</div>
             </div>
         )
     }
