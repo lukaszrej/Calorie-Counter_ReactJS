@@ -3,7 +3,6 @@ import React from 'react';
 class Form extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props, 'propssss');
         this.state = {
             weight: this.props.userDetails.weight,
             height: this.props.userDetails.height,
@@ -36,7 +35,6 @@ class Form extends React.Component {
         }
 
         let newCurrUserDetails = {weight: weight, height: height, age: age, gender: gender, activity: activity};
-        console.log(newCurrUserDetails, 'newCurrDetails from FORM');
 
         if (typeof setDailyNeed === "function") {
             setDailyNeed(dailyNeedLocal);}
@@ -49,7 +47,6 @@ class Form extends React.Component {
 
         console.log(newCurrUserDetails.weight, 'weight from FORM');
 
-        localStorage.setItem('userDetails', 'xxx');
     };
 
     render() {
@@ -76,8 +73,7 @@ class Form extends React.Component {
                             <label htmlFor={"Male"}>Male</label>
                         </div>
                         <div><input name="gender" type="radio" value={"Female"} onChange={this.changeInput}
-                                    checked={(this.state.gender === "Female") }
-                        />
+                                    checked={(this.state.gender === "Female") }/>
                             <label htmlFor={"Female"}>Female</label>
                         </div>
                     </div>
