@@ -74,9 +74,10 @@ class App extends React.Component {
                 <div className={'main-container'}>
                     Archive {this.state.showHistorySite &&
                 <History showSite={this.showSite.bind(this)}/>}
-                    AddReport {this.state.showReportSite &&
-                <AddReport dailyNeed={this.state.userDetails.dailyNeed}
-                           setFormSubmitted={this.setFormSubmitted.bind(this)}/>}
+                    AddReport
+                    {this.state.showReportSite &&
+                    <AddReport dailyNeed={this.state.userDetails.dailyNeed}
+                               setFormSubmitted={this.setFormSubmitted.bind(this)}/>}
                     {!this.state.formSubmitted &&
                     <Form setDailyNeed={this.setDailyNeed.bind(this)}
                           setFormSubmitted={this.setFormSubmitted.bind(this)}
