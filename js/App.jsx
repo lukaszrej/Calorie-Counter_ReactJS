@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Components/Header.jsx';
-import Form from "./Components/Form.jsx";
-import AddReport from "../../Test/js/Components/AddReport";
+import Form from './Components/Form.jsx';
+import AddReport from './Components/AddReport.jsx';
+import style from './../styles/main.scss';
 
 class App extends React.Component {
     constructor(props) {
@@ -14,10 +15,11 @@ class App extends React.Component {
                 age: 30,
                 gender: '',
                 activity: 1.2,
-                dailyNeed: '1234.00',
+                dailyNeed: '123.00',
             },
             formSubmitted: false,
             showReportSite: false
+            // userDetails: localStorage.getItem('userDetails') || null
         }
     }
 
@@ -42,6 +44,8 @@ class App extends React.Component {
             newUserDetails.gender = updatedUser.gender;
             newUserDetails.activity = updatedUser.activity;
 
+            console.log(newUserDetails.weight, 'waga z App? raczej nie');
+
             return({
                 userDetails: newUserDetails
             })
@@ -59,14 +63,18 @@ class App extends React.Component {
         return (
             <div>
                 <Header/>
-                {!this.state.formSubmitted &&
-                <Form setDailyNeed={this.setDailyNeed.bind(this)}
-                      setFormSubmitted={this.setFormSubmitted.bind(this)}
-                      updateUser={this.updateUser.bind(this)}
-                />}
-                <AddReport dailyNeed={this.state.userDetails.dailyNeed}
-                           setFormSubmitted={this.setFormSubmitted.bind(this)}/>}
-                <div>{console.log(this.state.userDetails ,'state currUserDetail from App')}</div>
+                <div className={'main-container'}>
+                    {!this.state.formSubmitted &&
+                    <Form setDailyNeed={this.setDailyNeed.bind(this)}
+                          setFormSubmitted={this.setFormSubmitted.bind(this)}
+                          updateUser={this.updateUser.bind(this)}
+                          userDetails={this.state.userDetails}
+                    />}
+                    {this.state.showReportSite &&
+                    <AddReport dailyNeed={this.state.userDetails.dailyNeed}
+                               setFormSubmitted={this.setFormSubmitted.bind(this)}/>}
+                    <div>{console.log(this.state.userDetails ,'state currUserDetail from App')}</div>
+                </div>
             </div>
         )
     }

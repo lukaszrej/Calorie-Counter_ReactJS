@@ -11,6 +11,18 @@ class AddReport extends React.Component {
         }
     }
 
+    fetchData = () => {
+        let url = 'https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=95cca2e7&app_key=' +
+            '82a7588a4ea9d81983e0794927c8cee6&ingr=coffee+and+croissant';
+
+        // let url = 'https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=95cca2e7&app_key=' +
+        //     '82a7588a4ea9d81983e0794927c8cee6&ingr=coffee+and+croissant';
+
+        fetch(url).then(res => res.json()).then(json => {
+            console.log(json);
+        })
+    };
+
     handleSubmit = (e) => {
         e.preventDefault();
         console.log(this.state.breakfast, 'breakfast');
@@ -32,6 +44,9 @@ class AddReport extends React.Component {
 
         return (
             <div className={"profile__container"}>
+
+                {/*https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=07d50733&app_key=
+82a7588a4ea9d81983e0794927c8cee6&ingr=coffee+and+croissant*/}
 
                 <h2>{this.state.text}{this.props.dailyNeed}</h2>
 
