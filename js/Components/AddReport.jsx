@@ -9,15 +9,14 @@ class AddReport extends React.Component {
             lunch: '',
             dinner: '',
             meal: '',
+            showList: true,
             date: "2019-05-22"
         }
     }
 
-    fetchData = () => {
+    fetchData = (food) => {
         let url = `https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=95cca2e7&app_key=` +
-            `82a7588a4ea9d81983e0794927c8cee6&ingr=${this.state.breakfast}`;
-
-        console.log(this.state.breakfast, 'stateBreakfast');
+            `82a7588a4ea9d81983e0794927c8cee6&ingr=${food}`;
 
         fetch(url).then(res => res.json()).then(json => {
 
@@ -25,7 +24,9 @@ class AddReport extends React.Component {
             console.log(currFood);
 
             this.setState({
-                meal: json.hints[0].food.nutrients
+                meal: json.hints
+            }, () => {
+                console.log(this.state.meal, 'thisSTRATA MEEAL');
             });
             console.log(json);
             console.log(json.hints[0].food.nutrients.CHOCDF, 'carbs');
@@ -44,9 +45,28 @@ class AddReport extends React.Component {
         //
     };
 
-    handleSubmit = (e) => {
+    // dodaj uniwersalność
+    handleBreakfastClick = (e) => {
         e.preventDefault();
-        this.fetchData();
+        this.fetchData(this.state.breakfast);
+
+    };
+
+    handleBreakfastItem = (e, foodId) => {
+        e.preventDefault();
+        // console.log(foodId);
+
+        const {meal} = this.state;
+        const choosen = meal.filter((el) => {
+            return el.food.foodId === foodId
+        });
+
+        console.log(choosen[0].food.label);
+
+        this.setState({
+            showList: false,
+            breakfast: choosen[0].food.label
+        })
     };
 
     handleChange = (e) => {
@@ -71,7 +91,7 @@ class AddReport extends React.Component {
                         <input type="submit"/>
                     </h2>
 
-                    <form onSubmit={this.handleSubmit}>
+                    <form>
 
                         <h3>{this.state.date}</h3>
 
@@ -82,8 +102,17 @@ class AddReport extends React.Component {
                                        onChange={this.handleChange}/>
                             </div>
                         </label>
-                        <input type="submit"/>
-                        {/*button onClick without 'form onSubmit*/}
+                        <button onClick={this.handleBreakfastClick}>Click</button>
+
+                        {this.state.showList &&
+                        <ul>{this.state.meal && this.state.meal.map((el) => {
+                            console.log(el, 'L');
+                            return <li key={el.food.foodId}
+                                       onClick={e => this.handleBreakfastItem(e, el.food.foodId)}>{el.food.label}</li>;
+                        })}
+                            <li>Cos wybrał</li>
+                        </ul>
+                        }
 
                         <label>Dodaj raport:
                             <div className={"addMeal"}>
