@@ -6,11 +6,12 @@ class AddReport extends React.Component {
         this.state = {
             text: 'Your daily calorie need is: ',
             breakfast: '',
+            breakfastNutrients: '',
             lunch: '',
             dinner: '',
             meal: '',
             showList: true,
-            date: "2019-05-22"
+            date: "2019-06-01"
         }
     }
 
@@ -20,41 +21,29 @@ class AddReport extends React.Component {
 
         fetch(url).then(res => res.json()).then(json => {
 
-            let currFood = json.hints[0].food.nutrients;
-            console.log(currFood);
-
             this.setState({
                 meal: json.hints
             }, () => {
-                console.log(this.state.meal, 'thisSTRATA MEEAL');
+                console.log(this.state.meal, 'this.state.MEAL');
             });
-            console.log(json);
-            console.log(json.hints[0].food.nutrients.CHOCDF, 'carbs');
-            console.log(json.hints[0].food.nutrients.FAT, 'fat');
-            console.log(json.hints[0].food.nutrients.PROCNT, 'proteins');
-            console.log(json.hints[0].food.nutrients.ENERC_KCAL, 'calories');
 
-            let kal = json.hints[0].food.nutrients.ENERC_KCAL;
-            console.log(kal);
+            // console.log(json.hints[0].food.nutrients.CHOCDF, 'carbs');
+            // console.log(json.hints[0].food.nutrients.FAT, 'fat');
+            // console.log(json.hints[0].food.nutrients.PROCNT, 'proteins');
+            // console.log(json.hints[0].food.nutrients.ENERC_KCAL, 'calories');
         })
 
-        // or
-        // fetch('url', {
-        //      headers: {
-        //          'Autorization' : 'Bearer <token>'
-        //
     };
 
     // dodaj uniwersalność
     handleBreakfastClick = (e) => {
         e.preventDefault();
-        this.fetchData(this.state.breakfast);
 
+        this.fetchData(this.state.breakfast);
     };
 
     handleBreakfastItem = (e, foodId) => {
         e.preventDefault();
-        // console.log(foodId);
 
         const {meal} = this.state;
         const choosen = meal.filter((el) => {
@@ -65,7 +54,14 @@ class AddReport extends React.Component {
 
         this.setState({
             showList: false,
-            breakfast: choosen[0].food.label
+            breakfast: choosen[0].food.label,
+            breakfastNutrients:
+                {
+                    kcal: Math.ceil(choosen[0].food.nutrients.ENERC_KCAL),
+                    protein: Math.ceil(choosen[0].food.nutrients.PROCNT),
+                    carbs: Math.ceil(choosen[0].food.nutrients.CHOCDF),
+                    fat: Math.ceil(choosen[0].food.nutrients.FAT)
+                }
         })
     };
 
@@ -105,23 +101,23 @@ class AddReport extends React.Component {
                         <button onClick={this.handleBreakfastClick}>Click</button>
 
                         {this.state.showList &&
-                        <ul>{this.state.meal && this.state.meal.map((el) => {
-                            console.log(el, 'L');
-                            return <li key={el.food.foodId}
+                        <ul>{this.state.meal && this.state.meal.map((el, index) => {
+                            // console.log(el, 'L');
+                            return <li key={el.food.foodId + index}
                                        onClick={e => this.handleBreakfastItem(e, el.food.foodId)}>{el.food.label}</li>;
                         })}
-                            <li>Cos wybrał</li>
                         </ul>
                         }
 
-                        <label>Dodaj raport:
-                            <div className={"addMeal"}>
-                                <div><i className="material-icons">add_circle_outline</i><h3>Lunch</h3></div>
-                                <input type="text" name={"lunch"} value={this.state.lunch}
-                                       onChange={this.handleChange}/>
-                            </div>
-                        </label>
-                        <input type="submit"/>
+                        {/*<label>Dodaj raport:*/}
+                        {/*    <div className={"addMeal"}>*/}
+                        {/*        <div><i className="material-icons">add_circle_outline</i><h3>Lunch</h3></div>*/}
+                        {/*        <input type="text" name={"lunch"} value={this.state.lunch}*/}
+                        {/*               onChange={this.handleChange}/>*/}
+                        {/*    </div>*/}
+                        {/*</label>*/}
+                        {/*<input type="submit"/>*/}
+
 
                         <label>Dodaj raport:
                             <div className={"addMeal"}>
@@ -136,9 +132,14 @@ class AddReport extends React.Component {
 
                     <ul>
                         <h2>Daily report</h2>
-                        <li>{this.state.breakfast}: {this.state.meal.ENERC_KCAL} kalorii</li>
-                        <li>{this.state.lunch}:</li>
-                        <li>{this.state.dinner}:</li>
+                        {this.state.breakfastNutrients &&
+
+                        <li>{this.state.breakfast + ': '} {this.state.breakfastNutrients.kcal} Kcal oraz
+                            {" " + this.state.breakfastNutrients.carbs} gram węglowodanów i
+                            {" " + this.state.breakfastNutrients.fat} gram tłuszczu.</li>}
+
+                        {/*<li>{this.state.lunch}:</li>*/}
+                        {/*<li>{this.state.dinner}:</li>*/}
                     </ul>
 
                 </div>

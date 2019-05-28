@@ -45,8 +45,6 @@ class Form extends React.Component {
         if (typeof updateUser === 'function') {
             updateUser(newCurrUserDetails);}
 
-        console.log(newCurrUserDetails.weight, 'weight from FORM');
-
     };
 
     render() {
