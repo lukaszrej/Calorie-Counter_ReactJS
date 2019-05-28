@@ -132,14 +132,26 @@ class AddReport extends React.Component {
 
                     <ul>
                         <h2>Daily report</h2>
+
                         {this.state.breakfastNutrients &&
 
-                        <li>{this.state.breakfast + ': '} {this.state.breakfastNutrients.kcal} Kcal oraz
-                            {" " + this.state.breakfastNutrients.carbs} gram węglowodanów i
-                            {" " + this.state.breakfastNutrients.fat} gram tłuszczu.</li>}
+                        <li>
+                            {this.state.breakfast + ': ' + this.state.breakfastNutrients.kcal + " Kcal oraz "}
+
+                            {
+                                !isNaN(this.state.breakfastNutrients.carbs) &&
+                                this.state.breakfastNutrients.carbs + " gram węglowodanów "
+                            }
+
+                            {
+                                !isNaN(this.state.breakfastNutrients.fat) &&
+                                this.state.breakfastNutrients.fat + " gram tłuszczu."
+                            }
+                        </li>}
 
                         {/*<li>{this.state.lunch}:</li>*/}
                         {/*<li>{this.state.dinner}:</li>*/}
+
                     </ul>
 
                 </div>
