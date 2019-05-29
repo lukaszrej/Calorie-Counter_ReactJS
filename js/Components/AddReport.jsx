@@ -202,6 +202,19 @@ class AddReport extends React.Component {
                             }
                         </li>}
 
+                        <div style={{backgroundColor: "grey"}}>
+                            {"total to: "
+                            + (Number(this.state.breakfastNutrients.kcal) + Number(this.state.lunchNutrients.kcal))
+                            + " kalorii"
+                            }
+                        </div>
+                        <div style={{backgroundColor: "grey"}}>
+                            {"do zjedzenia jeszcze: " + (this.props.dailyNeed
+                            - (Number(this.state.breakfastNutrients.kcal) + Number(this.state.lunchNutrients.kcal)))
+                                + " kalorii z: " + this.props.dailyNeed + " kalorii"
+                            }
+                        </div>
+
 
                     </ul>
 
