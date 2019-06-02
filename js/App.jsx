@@ -92,25 +92,32 @@ class App extends React.Component {
         return (
             <div>
                 <Nav/>
-                <div className={'main-container'}>
-                {/*    Archive {this.state.showHistorySite &&*/}
-                {/*<Archive showSite={this.showSite.bind(this)}/>}*/}
-                {/*    AddReport*/}
-                    {this.state.showReportSite &&
-                    <AddReport dailyNeed={this.state.userDetails.dailyNeed}
-                               setFormSubmitted={this.setFormSubmitted.bind(this)}
+                <div className="app__container">
+                    <div/>
 
-                               addToHistory={this.addToHistory.bind(this)}
-                               dailyReport={this.state.dailyReport}
-                    />
-                    }
-                    {!this.state.formSubmitted &&
-                    <FormUser setDailyNeed={this.setDailyNeed.bind(this)}
-                              setFormSubmitted={this.setFormSubmitted.bind(this)}
-                              updateUser={this.updateUser.bind(this)}
-                              userDetails={this.state.userDetails}/>}
+                    <div>
 
-                    <div>{console.log(this.state.userDetails, 'state currUserDetail from App')}</div>
+                        {/*    Archive {this.state.showHistorySite &&*/}
+                        {/*<Archive showSite={this.showSite.bind(this)}/>}*/}
+                        {/*    AddReport*/}
+                        {this.state.showReportSite &&
+                        <AddReport dailyNeed={this.state.userDetails.dailyNeed}
+                                   setFormSubmitted={this.setFormSubmitted.bind(this)}
+
+                                   addToHistory={this.addToHistory.bind(this)}
+                                   dailyReport={this.state.dailyReport}
+                        />
+                        }
+                        {!this.state.formSubmitted &&
+                        <FormUser setDailyNeed={this.setDailyNeed.bind(this)}
+                                  setFormSubmitted={this.setFormSubmitted.bind(this)}
+                                  updateUser={this.updateUser.bind(this)}
+                                  userDetails={this.state.userDetails}/>}
+
+                    </div>
+
+                    {/*<div>{console.log(this.state.userDetails, 'state currUserDetail from App')}</div>*/}
+                    <div/>
                 </div>
             </div>
         )

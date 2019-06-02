@@ -62,6 +62,10 @@ form {
   margin-top: 0;
   margin-bottom: 0; }
 
+.app__container {
+  display: grid;
+  grid-template-columns: 15% auto 15%; }
+
 .header {
   width: 100%;
   font-weight: 300;
