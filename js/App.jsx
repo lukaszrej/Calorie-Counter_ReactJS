@@ -50,7 +50,6 @@ class App extends React.Component {
             newHistory.date = dailyReport.date;
             newHistory.breakfastNutrients = dailyReport.breakfastNutrients;
 
-
             return ({
                 history: newHistory
             })
@@ -116,7 +115,6 @@ class App extends React.Component {
 
                     </div>
 
-                    {/*<div>{console.log(this.state.userDetails, 'state currUserDetail from App')}</div>*/}
                     <div/>
                 </div>
             </div>

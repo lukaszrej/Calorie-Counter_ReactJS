@@ -8,9 +8,9 @@ class Nav extends React.Component {
                     <div/>
                     <h1><i className="fas fa-carrot"/> Calorie Counter</h1>
                     <nav className="nav">
-                        <i className="material-icons">home</i>
-                        <i className="material-icons">view_list</i>
-                        <i className="material-icons">face</i>
+                        <div className="nav"><i className="material-icons">home</i>  Home</div>
+                        <div className="nav"><i className="material-icons">view_list</i>  Archive</div>
+                        <div className="nav"><i className="material-icons">face</i>  User</div>
                     </nav>
                     <div/>
                 </div>

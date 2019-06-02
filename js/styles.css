@@ -19,6 +19,11 @@ a {
   display: grid;
   grid-template-columns: 15% auto 15%; }
 
+.dashboard {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-gap: 2%; }
+
 .header {
   width: 100%;
   font-weight: 300;
@@ -36,7 +41,8 @@ a {
     align-items: center;
     justify-content: space-between; }
     .header .nav i {
-      font-size: 1.6rem; }
+      font-size: 1.3rem;
+      padding-right: .4rem; }
   @media screen and (max-width: 640px) {
     .header .container {
       display: grid;
@@ -66,19 +72,28 @@ input:focus, select:focus {
 
 form {
   display: flex;
-  background-color: #F0F0F0;
   flex-direction: column;
   align-items: center;
   padding: 0.5rem;
-  border-radius: 1%; }
+  border-radius: 1%;
+  background-color: #F0F0F0; }
 
-.profile__container {
+.addReport__container {
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .addReport__container h3:first-child {
+    padding-top: 1rem;
+    padding-bottom: 1rem; }
+  .addReport__container h3:nth-child(1) {
+    padding-top: .4rem;
+    padding-bottom: .4rem; }
+  .addReport__container form {
+    width: 100%; }
+  .addReport__container label {
+    width: 100%; }
 
 .addMeal {
-  background-color: lightgray;
   display: flex;
   flex-direction: column; }
 

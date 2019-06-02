@@ -103,8 +103,8 @@ class AddReport extends React.Component {
         }
 
         const choosen = meal.filter((el) => {
-                return el.food.foodId === foodId
-            });
+            return el.food.foodId === foodId
+        });
 
         const eatenFood = {...this.state.eatenFood}; // skopiowany obiekt ze state
 
@@ -156,25 +156,25 @@ class AddReport extends React.Component {
         const eatenFood = this.state.eatenFood;
 
         return (
-            <div className={"profile__container"}>
+            <div className="dashboard">
+                <div className="addReport__container">
 
-                <div>
-                    <h2>Your daily calorie need is: {this.props.dailyNeed}</h2>
-                    <h2>Add daily report
-                        <label>
-                            <input type="date" name="date" value={this.state.date} onChange={this.handleChange}/>
-                        </label>
-                    </h2>
+                    <h3>Your daily calorie need is: {this.props.dailyNeed}</h3>
+
+                    <label>
+                        <input type="date" name="date" value={this.state.date} onChange={this.handleChange}/>
+                    </label>
 
                     <form onSubmit={this.handleSubmitReport.bind(this)}>
 
+                        {this.state.date &&
                         <h3>{this.state.date}</h3>
+                        }
 
-                        {/*BREAKFAST*/}
+                        {/* b r e a k f a s t */}
                         <label>
                             <div className="addMeal">
                                 <div><i className="material-icons">add_circle_outline</i><h3>Breakfast</h3></div>
-                                {/*<input type="text" name="breakfastLabel" value={this.state.breakfastLabel}*/}
                                 <input type="text" name="breakfastInput" value={this.state.breakfastInput}
                                        onChange={(e) => this.handleChange(e)}/>
                             </div>
@@ -184,12 +184,13 @@ class AddReport extends React.Component {
                         {this.state.showBreakfastList &&
                         <ul>{this.state.breakfastMeal && this.state.breakfastMeal.map((el, index) => {
                             return <li key={el.food.foodId + index} name="breakfast"
-                                       onClick={e => this.handleListItemClick(e, "breakfast", el.food.foodId)}>{el.food.label}</li>;
+                                       onClick={e => this.handleListItemClick(e, "breakfast", el.food.foodId)}>
+                                {el.food.label.toLowerCase()}</li>;
                         })}
                         </ul>
                         }
 
-                        {/*LUNCH*/}
+                        {/* l u n c h */}
                         <label>
                             <div className="addMeal">
                                 <div><i className="material-icons">add_circle_outline</i><h3>Lunch</h3></div>
@@ -202,10 +203,31 @@ class AddReport extends React.Component {
                         {this.state.showLunchList &&
                         <ul>{this.state.lunchMeal && this.state.lunchMeal.map((el, index) => {
                             return <li key={el.food.foodId + index} name="lunch"
-                                       onClick={e => this.handleListItemClick(e, "lunch", el.food.foodId)}>{el.food.label}</li>;
+                                       onClick={e => this.handleListItemClick(e, "lunch", el.food.foodId)}>
+                                {el.food.label.toLowerCase()}</li>;
                         })}
                         </ul>
                         }
+
+                        {/* d i n n e r */}
+                        <label>
+                            <div className="addMeal">
+                                <div><i className="material-icons">add_circle_outline</i><h3>Dinner</h3></div>
+                                <input type="text" name="dinnerInput" value={this.state.dinnerInput}
+                                       onChange={this.handleChange}/>
+                            </div>
+                        </label>
+                        <button onClick={(e) => this.handleClick(e, "dinnerMeal")}>Click</button>
+
+                        {this.state.showDinnerList &&
+                        <ul>{this.state.dinnerMeal && this.state.dinnerMeal.map((el, index) => {
+                            return <li key={el.food.foodId + index} name="dinner"
+                                       onClick={e => this.handleListItemClick(e, "dinner", el.food.foodId)}>
+                                {el.food.label.toLowerCase()}</li>;
+                        })}
+                        </ul>
+                        }
+
 
                         <input type="submit"/>
                     </form>
@@ -263,7 +285,10 @@ class AddReport extends React.Component {
 
                 </div>
 
+                <div style={{backgroundColor: "orange"}}>Your daily report: </div>
+
             </div>
+
         );
     }
 }

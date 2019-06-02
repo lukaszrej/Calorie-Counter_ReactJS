@@ -2,3 +2,9 @@
   display: grid;
   grid-template-columns: 15% auto 15%;
 }
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-gap: 2%;
+}
