@@ -1,0 +1,43 @@
+.header {
+  width: 100%;
+  font-weight: 300;
+  padding: .2rem 1rem;
+  border-bottom: .6px solid #FF9966;
+  background-color: white;
+
+  .container {
+    display: grid;
+    grid-template-columns: 15% auto  auto 15%;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    font-style: italic;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    i {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .container {
+      display: grid;
+      grid-template-columns: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .nav {
+      justify-content: space-evenly;
+      padding-bottom: .4rem;
+    }
+  }
+
+
+
+}

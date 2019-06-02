@@ -157,7 +157,7 @@ class AddReport extends React.Component {
                     <h2>Your daily calorie need is: {this.props.dailyNeed}</h2>
                     <h2>Add daily report
                         <label>
-                            <input type={"date"} name={"date"} value={this.state.date} onChange={this.handleChange}/>
+                            <input type="date" name="date" value={this.state.date} onChange={this.handleChange}/>
                         </label>
                         <input type="submit"/>
                     </h2>
@@ -168,7 +168,7 @@ class AddReport extends React.Component {
 
                         {/*BREAKFAST*/}
                         <label>Dodaj raport:
-                            <div className={"addMeal"}>
+                            <div className="addMeal">
                                 <div><i className="material-icons">add_circle_outline</i><h3>Breakfast</h3></div>
                                 {/*<input type="text" name="breakfastLabel" value={this.state.breakfastLabel}*/}
                                 <input type="text" name="breakfast" value={this.state.breakfast}
@@ -187,9 +187,9 @@ class AddReport extends React.Component {
 
                         {/*LUNCH*/}
                         <label>Dodaj raport:
-                            <div className={"addMeal"}>
+                            <div className="addMeal">
                                 <div><i className="material-icons">add_circle_outline</i><h3>Lunch</h3></div>
-                                <input type="text" name={"lunch"} value={this.state.lunch}
+                                <input type="text" name="lunch" value={this.state.lunch}
                                        onChange={this.handleChange}/>
                             </div>
                         </label>

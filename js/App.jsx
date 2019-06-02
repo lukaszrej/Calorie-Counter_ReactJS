@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Nav from './Components/Nav.jsx';
-import Form from './Components/Form.jsx';
+import FormUser from './Components/FormUser.jsx';
 import AddReport from './Components/AddReport.jsx';
 import Archive from './Components/Archive.jsx';
 
@@ -105,10 +105,10 @@ class App extends React.Component {
                     />
                     }
                     {!this.state.formSubmitted &&
-                    <Form setDailyNeed={this.setDailyNeed.bind(this)}
-                          setFormSubmitted={this.setFormSubmitted.bind(this)}
-                          updateUser={this.updateUser.bind(this)}
-                          userDetails={this.state.userDetails}/>}
+                    <FormUser setDailyNeed={this.setDailyNeed.bind(this)}
+                              setFormSubmitted={this.setFormSubmitted.bind(this)}
+                              updateUser={this.updateUser.bind(this)}
+                              userDetails={this.state.userDetails}/>}
 
                     <div>{console.log(this.state.userDetails, 'state currUserDetail from App')}</div>
                 </div>
