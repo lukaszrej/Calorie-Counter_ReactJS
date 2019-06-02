@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Nav from './Components/Nav.jsx';
 import FormUser from './Components/FormUser.jsx';
 import AddReport from './Components/AddReport.jsx';
+import UserDetails from './Components/UserDetails.jsx';
 import Archive from './Components/Archive.jsx';
-
 import style from './../styles/main.scss';
 
 class App extends React.Component {

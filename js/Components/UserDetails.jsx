@@ -3,15 +3,13 @@ import React from 'react';
 class UserDetails extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            text: 'Archive...',
-        }
+        this.state = {}
     }
 
     render() {
         return (
-            <div className={"profile__container"}>
-                <h2>{this.state.text}</h2>
+            <div>
+                <h2>User Details</h2>
             </div>
         );
     }

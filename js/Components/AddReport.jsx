@@ -167,7 +167,7 @@ class AddReport extends React.Component {
                         <h3>{this.state.date}</h3>
 
                         {/*BREAKFAST*/}
-                        <label>Dodaj raport:
+                        <label>
                             <div className="addMeal">
                                 <div><i className="material-icons">add_circle_outline</i><h3>Breakfast</h3></div>
                                 {/*<input type="text" name="breakfastLabel" value={this.state.breakfastLabel}*/}
@@ -186,7 +186,7 @@ class AddReport extends React.Component {
                         }
 
                         {/*LUNCH*/}
-                        <label>Dodaj raport:
+                        <label>
                             <div className="addMeal">
                                 <div><i className="material-icons">add_circle_outline</i><h3>Lunch</h3></div>
                                 <input type="text" name="lunch" value={this.state.lunch}

@@ -6,14 +6,46 @@
 html {
   font-family: 'Mukta', sans-serif; }
 
-a {
-  text-decoration: none; }
-
 body {
   background-color: #F8F8F8; }
 
+a {
+  text-decoration: none; }
+
 .fa, .fas {
   font-weight: 300; }
+
+.app__container {
+  display: grid;
+  grid-template-columns: 15% auto 15%; }
+
+.header {
+  width: 100%;
+  font-weight: 300;
+  padding: .2rem 1rem;
+  border-bottom: .6px solid #FF9966;
+  background-color: white; }
+  .header .container {
+    display: grid;
+    grid-template-columns: 15% auto  auto 15%; }
+  .header h1 {
+    font-size: 1.6rem;
+    font-style: italic; }
+  .header .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .header .nav i {
+      font-size: 1.6rem; }
+  @media screen and (max-width: 640px) {
+    .header .container {
+      display: grid;
+      grid-template-columns: auto; }
+    .header h1 {
+      text-align: center; }
+    .header .nav {
+      justify-content: space-evenly;
+      padding-bottom: .4rem; } }
 
 input, select {
   width: 100%;
@@ -61,38 +93,6 @@ form {
 .addMeal > input {
   margin-top: 0;
   margin-bottom: 0; }
-
-.app__container {
-  display: grid;
-  grid-template-columns: 15% auto 15%; }
-
-.header {
-  width: 100%;
-  font-weight: 300;
-  padding: .2rem 1rem;
-  border-bottom: .6px solid #FF9966;
-  background-color: white; }
-  .header .container {
-    display: grid;
-    grid-template-columns: 15% auto  auto 15%; }
-  .header h1 {
-    font-size: 1.6rem;
-    font-style: italic; }
-  .header .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; }
-    .header .nav i {
-      font-size: 1.6rem; }
-  @media screen and (max-width: 640px) {
-    .header .container {
-      display: grid;
-      grid-template-columns: auto; }
-    .header h1 {
-      text-align: center; }
-    .header .nav {
-      justify-content: space-evenly;
-      padding-bottom: .4rem; } }
 
 .container__flex--user {
   display: flex;
