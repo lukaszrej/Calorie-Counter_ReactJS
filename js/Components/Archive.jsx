@@ -1,6 +1,6 @@
 import React from 'react';
 
-class History extends React.Component {
+class Archive extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,4 +17,4 @@ class History extends React.Component {
     }
 }
 
-export default History;
+export default Archive;

@@ -4,39 +4,55 @@ class AddReport extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: 'Your daily calorie need is: ',
+            date: '',
+            eatenFood: {
+                breakfast: null,
+                lunch: null,
+                dinner: null
+            },
+
 
             breakfast: '',
+            breakfastLabel: '',
             breakfastMeal: '',
-            breakfastNutrients: '',
 
             lunch: '',
             lunchMeal: '',
             lunchNutrients: '',
 
-            dinner: '',
+            breakfastNutrients: '',
 
             showList: true,
             showLunchList: true,
-            date: "2019-06-01"
         }
     }
 
-    fetchData = (food) => {
-        let url = `https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=95cca2e7&app_key=` +
+    fetchData = (name, food) => {
+        console.log(name, 'name');
+        console.log(food, 'food');
+
+        const url = `https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=95cca2e7&app_key=` +
             `82a7588a4ea9d81983e0794927c8cee6&ingr=${food}`;
 
         fetch(url).then(res => res.json()).then(json => {
+            const eatenFood = {...this.state.eatenFood}; // skopiowany obiekt ze state
+
+            for (const food in eatenFood) {
+                if (food === name) {
+                    eatenFood[food] = json.hints
+                }
+            }
+
             this.setState({
-                breakfastMeal: json.hints
+                eatenFood: eatenFood
             }, () => {
-                console.log(this.state.breakfastMeal, 'this.state.breakfastMEAL');
-            });
+                console.log(this.state.eatenFood, 'eaten food');
+            })
         })
     };
 
     fetchLunchData = (food) => {
-        let url = `https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=95cca2e7&app_key=` +
+        const url = `https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=95cca2e7&app_key=` +
             `82a7588a4ea9d81983e0794927c8cee6&ingr=${food}`;
 
         fetch(url).then(res => res.json()).then(json => {
@@ -49,10 +65,15 @@ class AddReport extends React.Component {
     };
 
     // dodaj uniwersalność
-    handleBreakfastClick = (e) => {
+    handleClick = (e) => {
         e.preventDefault();
 
-        this.fetchData(this.state.breakfast);
+        console.log(this.state.breakfast, 'stateBreakfast')
+
+        const name = e.target.name;
+        this.fetchData(name, this.state.breakfast);
+        console.log(name, 'name z handleClick')
+
     };
 
     handleLunchClick = (e) => {
@@ -104,20 +125,36 @@ class AddReport extends React.Component {
     };
 
     handleChange = (e) => {
-        let {name, value} = e.target;
+        console.log(e.target.name, 'eeee');
+
+        const {name, value} = e.target; // destrukturyzacja
 
         this.setState({
             [name]: value
         });
     };
 
+    handleSubmitReport = (e) => {
+        e.preventDefault();
+
+        const dailyReport = {};
+        const date = this.state.date;
+
+        this.setState({
+            dailyReport: dailyReport
+        })
+    };
+
     render() {
+
+        const eatenFood = this.state.eatenFood;
+        console.log(eatenFood);
 
         return (
             <div className={"profile__container"}>
 
                 <div>
-                    <h2>{this.state.text}{this.props.dailyNeed}</h2>
+                    <h2>Your daily calorie need is: {this.props.dailyNeed}</h2>
                     <h2>Add daily report
                         <label>
                             <input type={"date"} name={"date"} value={this.state.date} onChange={this.handleChange}/>
@@ -125,7 +162,7 @@ class AddReport extends React.Component {
                         <input type="submit"/>
                     </h2>
 
-                    <form>
+                    <form onSubmit={this.handleSubmitReport.bind(this)}>
 
                         <h3>{this.state.date}</h3>
 
@@ -133,11 +170,12 @@ class AddReport extends React.Component {
                         <label>Dodaj raport:
                             <div className={"addMeal"}>
                                 <div><i className="material-icons">add_circle_outline</i><h3>Breakfast</h3></div>
-                                <input type="text" name={"breakfast"} value={this.state.breakfast}
-                                       onChange={this.handleChange}/>
+                                {/*<input type="text" name="breakfastLabel" value={this.state.breakfastLabel}*/}
+                                <input type="text" name="breakfast" value={this.state.breakfast}
+                                       onChange={(e) => this.handleChange(e)}/>
                             </div>
                         </label>
-                        <button onClick={this.handleBreakfastClick}>Click</button>
+                        <button onClick={this.handleClick}>Click</button>
 
                         {this.state.showList &&
                         <ul>{this.state.breakfastMeal && this.state.breakfastMeal.map((el, index) => {
@@ -165,6 +203,7 @@ class AddReport extends React.Component {
                         </ul>
                         }
 
+                        <input type="submit"/>
                     </form>
 
                     <ul>
@@ -173,7 +212,7 @@ class AddReport extends React.Component {
                         {this.state.breakfastNutrients &&
 
                         <li>
-                            {this.state.breakfast + ': ' + this.state.breakfastNutrients.kcal + " Kcal oraz "}
+                            {this.state.breakfastLabel + ': ' + this.state.breakfastNutrients.kcal + " Kcal oraz "}
 
                             {
                                 !isNaN(this.state.breakfastNutrients.carbs) &&

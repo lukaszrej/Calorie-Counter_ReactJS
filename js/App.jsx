@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './Components/Header.jsx';
+import Nav from './Components/Nav.jsx';
 import Form from './Components/Form.jsx';
 import AddReport from './Components/AddReport.jsx';
-import History from './Components/History.jsx';
+import Archive from './Components/Archive.jsx';
+
 import style from './../styles/main.scss';
 
 class App extends React.Component {
@@ -18,6 +19,9 @@ class App extends React.Component {
                 activity: 1.2,
                 dailyNeed: '123.00',
             },
+
+            history: [],
+
             formSubmitted: false,
             showReportSite: false,
             showHistorySite: false
@@ -28,13 +32,29 @@ class App extends React.Component {
     setDailyNeed(dailyNeed) {
         this.setState((state) => {
 
-            const newUserDetails = {...state.userDetails}; // or: const newCurrUserDetails = Object.assign({}, state.userDetails);
+            const newUserDetails = {...state.userDetails};//or const newUserDetails = Object.assign({}, state.userDetails);
             newUserDetails.dailyNeed = dailyNeed;
 
             return ({
                 userDetails: newUserDetails
             })
         })
+    }
+
+    addToHistory(dailyReport) {
+        // todo: 1. przypisac do zmiennej stary state nie mutując go (spread)
+        // todo: 2. do nowej zmiennej dodac nowy obiekt, ktory przyjdzie w argumencie dailyReport
+        // todo: 3. aktualizacja state history
+        this.setState((state) => {
+            const newHistory = {...state.history}; //1.
+            newHistory.date = dailyReport.date;
+            newHistory.breakfastNutrients = dailyReport.breakfastNutrients;
+
+
+            return ({
+                history: newHistory
+            })
+        });
     }
 
     updateUser(updatedUser) {
@@ -67,17 +87,23 @@ class App extends React.Component {
         })
     }
 
+
     render() {
         return (
             <div>
-                <Header/>
+                <Nav/>
                 <div className={'main-container'}>
-                    Archive {this.state.showHistorySite &&
-                <History showSite={this.showSite.bind(this)}/>}
-                    AddReport
+                {/*    Archive {this.state.showHistorySite &&*/}
+                {/*<Archive showSite={this.showSite.bind(this)}/>}*/}
+                {/*    AddReport*/}
                     {this.state.showReportSite &&
                     <AddReport dailyNeed={this.state.userDetails.dailyNeed}
-                               setFormSubmitted={this.setFormSubmitted.bind(this)}/>}
+                               setFormSubmitted={this.setFormSubmitted.bind(this)}
+
+                               addToHistory={this.addToHistory.bind(this)}
+                               dailyReport={this.state.dailyReport}
+                    />
+                    }
                     {!this.state.formSubmitted &&
                     <Form setDailyNeed={this.setDailyNeed.bind(this)}
                           setFormSubmitted={this.setFormSubmitted.bind(this)}
