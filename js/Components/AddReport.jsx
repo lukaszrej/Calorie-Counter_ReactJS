@@ -119,7 +119,6 @@ class AddReport extends React.Component {
         }
 
 
-
         this.setState({
             [input]: "",
             [showList]: false,
@@ -182,13 +181,30 @@ class AddReport extends React.Component {
                                        onChange={(e) => this.handleChange(e)}/>
                             </div>
                         </label>
-                        <button onClick={(e) => this.handleClick(e, "breakfastMeal")}>Click</button>
+                        <button onClick={(e) => this.handleClick(e, "breakfastMeal")}>Search food</button>
 
                         {this.state.showBreakfastList &&
-                        <ul>{this.state.breakfastMeal && this.state.breakfastMeal.map((el, index) => {
-                            return <li key={el.food.foodId + index} name="breakfast"
-                                       onClick={e => this.handleListItemClick(e, "breakfast", el.food.foodId)}>
-                                {el.food.label.toLowerCase()}</li>;
+                        <ul className="result__list">{this.state.breakfastMeal && this.state.breakfastMeal.map((el, index) => {
+                            return <div
+                                key={el.food.foodId + index} name="breakfast"
+                                onClick={e => this.handleListItemClick(e, "breakfast", el.food.foodId)}>
+                                {el.food.label.toLowerCase()}
+
+                                <div>
+                                    {!isNaN(Math.ceil(el.food.nutrients.ENERC_KCAL)) &&
+                                    Math.ceil(el.food.nutrients.ENERC_KCAL) + " kcal"}
+
+                                    {!isNaN(Math.ceil(el.food.nutrients.PROCNT)) && " | " +
+                                    Math.ceil(el.food.nutrients.PROCNT) + " g protein"}
+
+                                    {!isNaN(Math.ceil(el.food.nutrients.CHOCDF)) && " | " +
+                                    Math.ceil(el.food.nutrients.CHOCDF) + " g carbs"}
+
+                                    {!isNaN(Math.ceil(el.food.nutrients.FAT)) && " | " +
+                                    Math.ceil(el.food.nutrients.FAT) + " g fat "}
+                                </div>
+
+                            </div>;
                         })}
                         </ul>
                         }
@@ -201,12 +217,13 @@ class AddReport extends React.Component {
                                        onChange={this.handleChange}/>
                             </div>
                         </label>
-                        <button onClick={(e) => this.handleClick(e, "lunchMeal")}>Click</button>
+                        <button onClick={(e) => this.handleClick(e, "lunchMeal")}>Search food</button>
 
                         {this.state.showLunchList &&
-                        <ul>{this.state.lunchMeal && this.state.lunchMeal.map((el, index) => {
-                            return <li key={el.food.foodId + index} name="lunch"
-                                       onClick={e => this.handleListItemClick(e, "lunch", el.food.foodId)}>
+                        <ul className="result__list">{this.state.lunchMeal && this.state.lunchMeal.map((el, index) => {
+                            return <li
+                                key={el.food.foodId + index} name="lunch"
+                                onClick={e => this.handleListItemClick(e, "lunch", el.food.foodId)}>
                                 {el.food.label.toLowerCase()}</li>;
                         })}
                         </ul>
@@ -220,10 +237,10 @@ class AddReport extends React.Component {
                                        onChange={this.handleChange}/>
                             </div>
                         </label>
-                        <button onClick={(e) => this.handleClick(e, "dinnerMeal")}>Click</button>
+                        <button onClick={(e) => this.handleClick(e, "dinnerMeal")}>Search food</button>
 
                         {this.state.showDinnerList &&
-                        <ul>{this.state.dinnerMeal && this.state.dinnerMeal.map((el, index) => {
+                        <ul className="result__list">{this.state.dinnerMeal && this.state.dinnerMeal.map((el, index) => {
                             return <li key={el.food.foodId + index} name="dinner"
                                        onClick={e => this.handleListItemClick(e, "dinner", el.food.foodId)}>
                                 {el.food.label.toLowerCase()}</li>;
@@ -236,59 +253,58 @@ class AddReport extends React.Component {
                     </form>
 
 
-
                 </div>
 
                 <div>Your daily report:
 
 
                     {/*<ul>*/}
-                        <h2>Daily report</h2>
+                    <h2>Daily report</h2>
 
-                        {this.state.breakfastNutrients &&
+                    {this.state.breakfastNutrients &&
 
-                        <span>
+                    <span>
                             {this.state.breakfastLabel + ': ' + this.state.breakfastNutrients.kcal + " Kcal oraz "}
 
-                            {
-                                !isNaN(this.state.breakfastNutrients.carbs) &&
-                                this.state.breakfastNutrients.carbs + " gram węglowodanów "
-                            }
+                        {
+                            !isNaN(this.state.breakfastNutrients.carbs) &&
+                            this.state.breakfastNutrients.carbs + " gram węglowodanów "
+                        }
 
-                            {
-                                !isNaN(this.state.breakfastNutrients.fat) &&
-                                this.state.breakfastNutrients.fat + " gram tłuszczu."
-                            }
+                        {
+                            !isNaN(this.state.breakfastNutrients.fat) &&
+                            this.state.breakfastNutrients.fat + " gram tłuszczu."
+                        }
                         </span>}
 
-                        {this.state.lunchNutrients &&
+                    {this.state.lunchNutrients &&
 
-                        <span>
+                    <span>
                             {this.state.lunch + ': ' + this.state.lunchNutrients.kcal + " Kcal oraz "}
 
-                            {
-                                !isNaN(this.state.lunchNutrients.carbs) &&
-                                this.state.lunchNutrients.carbs + " gram węglowodanów "
-                            }
+                        {
+                            !isNaN(this.state.lunchNutrients.carbs) &&
+                            this.state.lunchNutrients.carbs + " gram węglowodanów "
+                        }
 
-                            {
-                                !isNaN(this.state.lunchNutrients.fat) &&
-                                this.state.lunchNutrients.fat + " gram tłuszczu."
-                            }
+                        {
+                            !isNaN(this.state.lunchNutrients.fat) &&
+                            this.state.lunchNutrients.fat + " gram tłuszczu."
+                        }
                         </span>}
 
-                        <div>
-                            {"total to: "
-                            + (Number(this.state.breakfastNutrients.kcal) + Number(this.state.lunchNutrients.kcal))
-                            + " kalorii"
-                            }
-                        </div>
-                        <div>
-                            {"do zjedzenia jeszcze: " + (this.props.dailyNeed
-                                - (Number(this.state.breakfastNutrients.kcal) + Number(this.state.lunchNutrients.kcal)))
-                            + " kalorii z: " + this.props.dailyNeed + " kalorii"
-                            }
-                        </div>
+                    <div>
+                        {"total to: "
+                        + (Number(this.state.breakfastNutrients.kcal) + Number(this.state.lunchNutrients.kcal))
+                        + " kalorii"
+                        }
+                    </div>
+                    <div>
+                        {"do zjedzenia jeszcze: " + (this.props.dailyNeed
+                            - (Number(this.state.breakfastNutrients.kcal) + Number(this.state.lunchNutrients.kcal)))
+                        + " kalorii z: " + this.props.dailyNeed + " kalorii"
+                        }
+                    </div>
 
 
                     {/*</ul>*/}
