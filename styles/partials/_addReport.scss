@@ -50,11 +50,32 @@ form {
     width: 100%;
   }
 
+  input[type=text] {
+    width: 85%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    //background-image: url('searchicon.png');
+    text-align: center;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: .6rem;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.5s ease-in-out;
+  }
+
+  input[type=text]:focus {
+    width: 100%;
+  }
+
 }
 
 .addMeal {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .addMeal > div {

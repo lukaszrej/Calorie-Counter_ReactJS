@@ -109,13 +109,15 @@ class AddReport extends React.Component {
         const eatenFood = {...this.state.eatenFood}; // skopiowany obiekt ze state
 
         // todo: for-in
-        // for (const food in eatenFood) {
-        //     if (food === meal) {
-        //         eatenFood[food] = json.hints
-        //     }
-        // }
-        //
-        //
+        for (const meal in eatenFood) {
+
+            if (meal === mealName) {
+                eatenFood[meal].push(choosen);
+                // eatenFood.meal.push(choosen);
+            }
+
+        }
+
 
 
         this.setState({
@@ -154,6 +156,7 @@ class AddReport extends React.Component {
     render() {
 
         const eatenFood = this.state.eatenFood;
+        console.log(eatenFood, 'eatenfooddd');
 
         return (
             <div className="dashboard">
@@ -232,12 +235,19 @@ class AddReport extends React.Component {
                         <input type="submit"/>
                     </form>
 
-                    <ul>
+
+
+                </div>
+
+                <div>Your daily report:
+
+
+                    {/*<ul>*/}
                         <h2>Daily report</h2>
 
                         {this.state.breakfastNutrients &&
 
-                        <li>
+                        <span>
                             {this.state.breakfastLabel + ': ' + this.state.breakfastNutrients.kcal + " Kcal oraz "}
 
                             {
@@ -249,11 +259,11 @@ class AddReport extends React.Component {
                                 !isNaN(this.state.breakfastNutrients.fat) &&
                                 this.state.breakfastNutrients.fat + " gram tłuszczu."
                             }
-                        </li>}
+                        </span>}
 
                         {this.state.lunchNutrients &&
 
-                        <li>
+                        <span>
                             {this.state.lunch + ': ' + this.state.lunchNutrients.kcal + " Kcal oraz "}
 
                             {
@@ -265,15 +275,15 @@ class AddReport extends React.Component {
                                 !isNaN(this.state.lunchNutrients.fat) &&
                                 this.state.lunchNutrients.fat + " gram tłuszczu."
                             }
-                        </li>}
+                        </span>}
 
-                        <div style={{backgroundColor: "grey"}}>
+                        <div>
                             {"total to: "
                             + (Number(this.state.breakfastNutrients.kcal) + Number(this.state.lunchNutrients.kcal))
                             + " kalorii"
                             }
                         </div>
-                        <div style={{backgroundColor: "grey"}}>
+                        <div>
                             {"do zjedzenia jeszcze: " + (this.props.dailyNeed
                                 - (Number(this.state.breakfastNutrients.kcal) + Number(this.state.lunchNutrients.kcal)))
                             + " kalorii z: " + this.props.dailyNeed + " kalorii"
@@ -281,11 +291,9 @@ class AddReport extends React.Component {
                         </div>
 
 
-                    </ul>
+                    {/*</ul>*/}
 
                 </div>
-
-                <div style={{backgroundColor: "orange"}}>Your daily report: </div>
 
             </div>
 
