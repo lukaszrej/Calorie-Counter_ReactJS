@@ -1,4 +1,5 @@
 import React from 'react';
+import DailyReport from './DailyReport.jsx';
 
 class AddReport extends React.Component {
     constructor(props) {
@@ -32,19 +33,12 @@ class AddReport extends React.Component {
         }
     }
 
-    fetchData = (meal, food) => {
-        const url = `https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=95cca2e7&app_key=` +
-            `82a7588a4ea9d81983e0794927c8cee6&ingr=${food}`;
+    handleChange = (e) => {
+        const {name, value} = e.target; // destructuring
 
-        fetch(url).then(res => res.json()).then(json => {
-
-            this.setState({
-                [meal]: json.hints
-            }, () => {
-                console.log(this.state[meal], meal)
-            })
-
-        })
+        this.setState({
+            [name]: value
+        });
     };
 
     handleClick = (e, meal) => {
@@ -73,6 +67,19 @@ class AddReport extends React.Component {
 
         this.setState({
             [showList]: true
+        })
+    };
+
+    fetchData = (meal, food) => {
+        const url = `https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=95cca2e7&app_key=` +
+            `82a7588a4ea9d81983e0794927c8cee6&ingr=${food}`;
+
+        fetch(url).then(res => res.json()).then(json => {
+
+            this.setState({
+                [meal]: json.hints
+            })
+
         })
     };
 
@@ -106,18 +113,13 @@ class AddReport extends React.Component {
             return el.food.foodId === foodId
         });
 
-        const eatenFood = {...this.state.eatenFood}; // skopiowany obiekt ze state
+        const eatenFood = {...this.state.eatenFood}; // state copied
 
-        // todo: for-in
         for (const meal in eatenFood) {
-
             if (meal === mealName) {
-                eatenFood[meal].push(choosen);
-                // eatenFood.meal.push(choosen);
+                eatenFood[meal].push(choosen); // or: eatenFood.meal.push(choosen);
             }
-
         }
-
 
         this.setState({
             [input]: "",
@@ -131,14 +133,6 @@ class AddReport extends React.Component {
                     fat: Math.ceil(choosen[0].food.nutrients.FAT)
                 }
         })
-    };
-
-    handleChange = (e) => {
-        const {name, value} = e.target; // destructuring
-
-        this.setState({
-            [name]: value
-        });
     };
 
     handleSubmitReport = (e) => {
@@ -177,11 +171,12 @@ class AddReport extends React.Component {
                         <label>
                             <div className="addMeal">
                                 <div><i className="material-icons">add_circle_outline</i><h3>Breakfast</h3></div>
-                                <input type="text" name="breakfastInput" value={this.state.breakfastInput}
+                                <input type="text" name="breakfastInput" placeholder="Search food"
+                                       value={this.state.breakfastInput}
                                        onChange={(e) => this.handleChange(e)}/>
                             </div>
                         </label>
-                        <button onClick={(e) => this.handleClick(e, "breakfastMeal")}>Search food</button>
+                        <button onClick={(e) => this.handleClick(e, "breakfastMeal")}>Find</button>
 
                         {this.state.showBreakfastList &&
                         <ul className="result__list">{this.state.breakfastMeal && this.state.breakfastMeal.map((el, index) => {
@@ -213,19 +208,38 @@ class AddReport extends React.Component {
                         <label>
                             <div className="addMeal">
                                 <div><i className="material-icons">add_circle_outline</i><h3>Lunch</h3></div>
-                                <input type="text" name="lunchInput" value={this.state.lunchInput}
+                                <input type="text" name="lunchInput" placeholder="Search food"
+                                       value={this.state.lunchInput}
                                        onChange={this.handleChange}/>
                             </div>
                         </label>
-                        <button onClick={(e) => this.handleClick(e, "lunchMeal")}>Search food</button>
+                        <button onClick={(e) => this.handleClick(e, "lunchMeal")}>Find</button>
 
                         {this.state.showLunchList &&
                         <ul className="result__list">{this.state.lunchMeal && this.state.lunchMeal.map((el, index) => {
-                            return <li
+                            return <div
                                 key={el.food.foodId + index} name="lunch"
                                 onClick={e => this.handleListItemClick(e, "lunch", el.food.foodId)}>
-                                {el.food.label.toLowerCase()}</li>;
+                                {el.food.label.toLowerCase()}
+
+                                <div>
+                                    {!isNaN(Math.ceil(el.food.nutrients.ENERC_KCAL)) &&
+                                    Math.ceil(el.food.nutrients.ENERC_KCAL) + " kcal"}
+
+                                    {!isNaN(Math.ceil(el.food.nutrients.PROCNT)) && " | " +
+                                    Math.ceil(el.food.nutrients.PROCNT) + " g protein"}
+
+                                    {!isNaN(Math.ceil(el.food.nutrients.CHOCDF)) && " | " +
+                                    Math.ceil(el.food.nutrients.CHOCDF) + " g carbs"}
+
+                                    {!isNaN(Math.ceil(el.food.nutrients.FAT)) && " | " +
+                                    Math.ceil(el.food.nutrients.FAT) + " g fat "}
+                                </div>
+
+                            </div>;
                         })}
+
+
                         </ul>
                         }
 
@@ -233,83 +247,70 @@ class AddReport extends React.Component {
                         <label>
                             <div className="addMeal">
                                 <div><i className="material-icons">add_circle_outline</i><h3>Dinner</h3></div>
-                                <input type="text" name="dinnerInput" value={this.state.dinnerInput}
+                                <input type="text" name="dinnerInput" placeholder="Search food"
+                                       value={this.state.dinnerInput}
                                        onChange={this.handleChange}/>
                             </div>
                         </label>
-                        <button onClick={(e) => this.handleClick(e, "dinnerMeal")}>Search food</button>
+                        <button onClick={(e) => this.handleClick(e, "dinnerMeal")}>Find</button>
 
                         {this.state.showDinnerList &&
                         <ul className="result__list">{this.state.dinnerMeal && this.state.dinnerMeal.map((el, index) => {
-                            return <li key={el.food.foodId + index} name="dinner"
-                                       onClick={e => this.handleListItemClick(e, "dinner", el.food.foodId)}>
-                                {el.food.label.toLowerCase()}</li>;
+                            return <div
+                                key={el.food.foodId + index} name="dinner"
+                                onClick={e => this.handleListItemClick(e, "dinner", el.food.foodId)}>
+                                {el.food.label.toLowerCase()}
+
+                                <div>
+                                    {!isNaN(Math.ceil(el.food.nutrients.ENERC_KCAL)) &&
+                                    Math.ceil(el.food.nutrients.ENERC_KCAL) + " kcal"}
+
+                                    {!isNaN(Math.ceil(el.food.nutrients.PROCNT)) && " | " +
+                                    Math.ceil(el.food.nutrients.PROCNT) + " g protein"}
+
+                                    {!isNaN(Math.ceil(el.food.nutrients.CHOCDF)) && " | " +
+                                    Math.ceil(el.food.nutrients.CHOCDF) + " g carbs"}
+
+                                    {!isNaN(Math.ceil(el.food.nutrients.FAT)) && " | " +
+                                    Math.ceil(el.food.nutrients.FAT) + " g fat "}
+                                </div>
+
+                            </div>;
                         })}
                         </ul>
                         }
 
-
                         <input type="submit"/>
                     </form>
 
+                    {/*<div className="popularFood__container">*/}
+                    {/*    <div>tuna</div>*/}
+                    {/*    <div>potatoes</div>*/}
+                    {/*    <div>chips</div>*/}
+                    {/*</div>*/}
 
                 </div>
 
-                <div>Your daily report:
+                <div>
+                    <h3>Your breakast: {this.state.eatenFood.breakfast.map((el) => {
+                        console.log(el[0].food.label, 'el .food');
 
 
-                    {/*<ul>*/}
-                    <h2>Daily report</h2>
 
-                    {this.state.breakfastNutrients &&
+                        return <div>{el[0].food.label}</div>
+                    })}</h3>
 
-                    <span>
-                            {this.state.breakfastLabel + ': ' + this.state.breakfastNutrients.kcal + " Kcal oraz "}
-
-                        {
-                            !isNaN(this.state.breakfastNutrients.carbs) &&
-                            this.state.breakfastNutrients.carbs + " gram węglowodanów "
-                        }
-
-                        {
-                            !isNaN(this.state.breakfastNutrients.fat) &&
-                            this.state.breakfastNutrients.fat + " gram tłuszczu."
-                        }
-                        </span>}
-
-                    {this.state.lunchNutrients &&
-
-                    <span>
-                            {this.state.lunch + ': ' + this.state.lunchNutrients.kcal + " Kcal oraz "}
-
-                        {
-                            !isNaN(this.state.lunchNutrients.carbs) &&
-                            this.state.lunchNutrients.carbs + " gram węglowodanów "
-                        }
-
-                        {
-                            !isNaN(this.state.lunchNutrients.fat) &&
-                            this.state.lunchNutrients.fat + " gram tłuszczu."
-                        }
-                        </span>}
-
-                    <div>
-                        {"total to: "
-                        + (Number(this.state.breakfastNutrients.kcal) + Number(this.state.lunchNutrients.kcal))
-                        + " kalorii"
-                        }
-                    </div>
-                    <div>
-                        {"do zjedzenia jeszcze: " + (this.props.dailyNeed
-                            - (Number(this.state.breakfastNutrients.kcal) + Number(this.state.lunchNutrients.kcal)))
-                        + " kalorii z: " + this.props.dailyNeed + " kalorii"
-                        }
-                    </div>
+                    <h3>Your lunch: {this.state.eatenFood.lunch.map((el) => {
+                        console.log(el[0].food.label, 'el .food');
 
 
-                    {/*</ul>*/}
+
+                        return <div>{el[0].food.label}</div>
+                    })}</h3>
 
                 </div>
+
+                {/*<DailyReport breakfastNutrients={this.state.breakfastNutrients}/>*/}
 
             </div>
 

@@ -4,6 +4,7 @@ import Nav from './Components/Nav.jsx';
 import FormUser from './Components/FormUser.jsx';
 import AddReport from './Components/AddReport.jsx';
 import UserDetails from './Components/UserDetails.jsx';
+import DailyReport from './Components/DailyReport.jsx';
 import Archive from './Components/Archive.jsx';
 import style from './../styles/main.scss';
 
@@ -24,7 +25,6 @@ class App extends React.Component {
 
             formSubmitted: false,
             showReportSite: false,
-            showHistorySite: false
             // userDetails: localStorage.getItem('userDetails') || null
         }
     }
@@ -80,12 +80,6 @@ class App extends React.Component {
         })
     }
 
-    showSite() {
-        this.setState({
-            showHistorySite: true
-        })
-    }
-
 
     render() {
         return (
@@ -96,9 +90,6 @@ class App extends React.Component {
 
                     <div>
 
-                        {/*    Archive {this.state.showHistorySite &&*/}
-                        {/*<Archive showSite={this.showSite.bind(this)}/>}*/}
-                        {/*    AddReport*/}
                         {this.state.showReportSite &&
                         <AddReport dailyNeed={this.state.userDetails.dailyNeed}
                                    setFormSubmitted={this.setFormSubmitted.bind(this)}

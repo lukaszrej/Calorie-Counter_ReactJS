@@ -22,7 +22,7 @@ a {
 
 .dashboard {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 50% 50%;
   grid-gap: 2%; }
 
 .header {
@@ -88,9 +88,14 @@ form {
     width: 85%;
     text-align: center; }
     .addReport__container .result__list div {
-      font-size: 1.4rem; }
+      font-size: .9375rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: .1875rem; }
+    .addReport__container .result__list div:hover {
+      background-color: #C7E884; }
     .addReport__container .result__list div > div {
-      font-size: .9rem;
+      font-size: .8rem;
       font-style: italic;
       border-bottom: dotted 2px #ccc; }
   .addReport__container h3:first-child {
@@ -116,8 +121,6 @@ form {
     padding: .6rem;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.5s ease-in-out; }
-  .addReport__container input[type=text]:focus {
-    width: 100%; }
   .addReport__container button {
     display: inline-block;
     width: 85%;
@@ -138,6 +141,12 @@ form {
     .addReport__container  button {
       display: block;
       margin: 0.2em auto; } }
+
+.popularFood__container {
+  display: flex;
+  justify-content: space-between; }
+  .popularFood__container span {
+    background-color: yellow; }
 
 .addMeal {
   display: flex;
