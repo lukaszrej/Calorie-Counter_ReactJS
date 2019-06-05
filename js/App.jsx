@@ -8,6 +8,11 @@ import DailyReport from './Components/DailyReport.jsx';
 import Archive from './Components/Archive.jsx';
 import style from './../styles/main.scss';
 
+import {
+    HashRouter,
+
+} from 'react-router-dom';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -89,13 +94,14 @@ class App extends React.Component {
                     <div/>
 
                     <div>
-
                         {this.state.showReportSite &&
                         <AddReport dailyNeed={this.state.userDetails.dailyNeed}
                                    setFormSubmitted={this.setFormSubmitted.bind(this)}
 
                                    addToHistory={this.addToHistory.bind(this)}
                                    dailyReport={this.state.dailyReport}
+
+
                         />
                         }
                         {!this.state.formSubmitted &&

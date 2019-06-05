@@ -1,18 +1,9 @@
 import React from 'react';
 
-class UserDetails extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-
-    render() {
-        return (
-            <div>
-                <h2>User Details</h2>
-            </div>
-        );
-    }
+function UserDetails(props) {
+    return (
+        <h2>User Details</h2>
+    )
 }
 
 export default UserDetails;
