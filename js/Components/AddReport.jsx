@@ -170,12 +170,13 @@ class AddReport extends React.Component {
                         {/* b r e a k f a s t */}
                         <label>
                             <div className="addMeal">
-                                <div><i className="material-icons">add_circle_outline</i><h3>Breakfast</h3></div>
+                                <div><h3>Breakfast</h3></div>
                                 <input type="text" name="breakfastInput" placeholder="Search food"
                                        value={this.state.breakfastInput}
                                        onChange={(e) => this.handleChange(e)}/>
                             </div>
                         </label>
+
                         <button onClick={(e) => this.handleClick(e, "breakfastMeal")}>Find</button>
 
                         {this.state.showBreakfastList &&
@@ -207,7 +208,7 @@ class AddReport extends React.Component {
                         {/* l u n c h */}
                         <label>
                             <div className="addMeal">
-                                <div><i className="material-icons">add_circle_outline</i><h3>Lunch</h3></div>
+                                <div><h3>Lunch</h3></div>
                                 <input type="text" name="lunchInput" placeholder="Search food"
                                        value={this.state.lunchInput}
                                        onChange={this.handleChange}/>
@@ -246,7 +247,7 @@ class AddReport extends React.Component {
                         {/* d i n n e r */}
                         <label>
                             <div className="addMeal">
-                                <div><i className="material-icons">add_circle_outline</i><h3>Dinner</h3></div>
+                                <div><h3>Dinner</h3></div>
                                 <input type="text" name="dinnerInput" placeholder="Search food"
                                        value={this.state.dinnerInput}
                                        onChange={this.handleChange}/>
@@ -291,26 +292,24 @@ class AddReport extends React.Component {
 
                 </div>
 
-                <div>
-                    <h3>Your breakast: {this.state.eatenFood.breakfast.map((el) => {
-                        console.log(el[0].food.label, 'el .food');
+                {/*<div>*/}
+                {/*    <h3>Your breakast: {this.state.eatenFood.breakfast.map((el) => {*/}
+                {/*        console.log(el[0].food.label, 'el .food');*/}
 
 
+                {/*        return <div>{el[0].food.label}</div>*/}
+                {/*    })}</h3>*/}
 
-                        return <div>{el[0].food.label}</div>
-                    })}</h3>
-
-                    <h3>Your lunch: {this.state.eatenFood.lunch.map((el) => {
-                        console.log(el[0].food.label, 'el .food');
-
+                {/*    <h3>Your lunch: {this.state.eatenFood.lunch.map((el) => {*/}
+                {/*        console.log(el[0].food.label, 'el .food');*/}
 
 
-                        return <div>{el[0].food.label}</div>
-                    })}</h3>
+                {/*        return <div>{el[0].food.label}</div>*/}
+                {/*    })}</h3>*/}
 
-                </div>
+                {/*</div>*/}
 
-                {/*<DailyReport breakfastNutrients={this.state.breakfastNutrients}/>*/}
+                <DailyReport eatenFood={this.state.eatenFood}/>
 
             </div>
 

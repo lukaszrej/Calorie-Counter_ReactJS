@@ -3,18 +3,35 @@ import React from 'react';
 class DailyReport extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            // eatenFood: this.props.eatenFood,
-        }
+        this.state = {}
     }
 
     render() {
 
-        console.log(this.props.breakfastNutrients);
+        console.log(this.props.eatenFood);
 
         return (
-            <div>
-                <h2>It's your daily report</h2>
+            <div className="dailyReport__container">
+                <h3>It's your daily report</h3>
+
+                <ul className="report__list">
+                    {this.props.eatenFood.breakfast.map((el, index) => {
+                        return <div>
+                            {el[0].food.label.toLowerCase()}
+                            <div>{Math.ceil(el[0].food.nutrients.ENERC_KCAL)+ " kcal"}</div>
+                        </div>
+
+                    })}
+                </ul>
+
+                {/*<p>Your breakast: {this.props.eatenFood.breakfast.map((el) => {*/}
+                {/*    console.log(el[0].food.label, 'el .food');*/}
+
+
+                {/*    return <div>{el[0].food.label}</div>*/}
+                {/*})}</p>*/}
+
+
 
                 {/*{this.state.breakfastNutrients &&*/}
 

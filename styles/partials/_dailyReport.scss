@@ -1,0 +1,34 @@
+.dailyReport__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .report__list {
+    background-color: #C7FFA0;
+    width: 85%;
+    text-align: center;
+
+    div {
+      font-size: .9375rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: .1875rem;
+    }
+
+    div:hover {
+      background-color: #C7E884;
+    }
+
+    div > div {
+      font-size: .8rem;
+      font-style: italic;
+      border-bottom: dotted 2px #ccc;
+    }
+  }
+
+}

@@ -98,12 +98,9 @@ form {
       font-size: .8rem;
       font-style: italic;
       border-bottom: dotted 2px #ccc; }
-  .addReport__container h3:first-child {
+  .addReport__container h3 {
     padding-top: 1rem;
     padding-bottom: 1rem; }
-  .addReport__container h3:nth-child(1) {
-    padding-top: .4rem;
-    padding-bottom: .4rem; }
   .addReport__container form {
     width: 100%; }
   .addReport__container label {
@@ -164,6 +161,29 @@ form {
 .addMeal > input {
   margin-top: 0;
   margin-bottom: 0; }
+
+.dailyReport__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .dailyReport__container h3 {
+    padding-top: 1rem;
+    padding-bottom: 1rem; }
+  .dailyReport__container .report__list {
+    background-color: #C7FFA0;
+    width: 85%;
+    text-align: center; }
+    .dailyReport__container .report__list div {
+      font-size: .9375rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: .1875rem; }
+    .dailyReport__container .report__list div:hover {
+      background-color: #C7E884; }
+    .dailyReport__container .report__list div > div {
+      font-size: .8rem;
+      font-style: italic;
+      border-bottom: dotted 2px #ccc; }
 
 .container__flex--user {
   display: flex;
