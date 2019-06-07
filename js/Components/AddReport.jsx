@@ -284,30 +284,15 @@ class AddReport extends React.Component {
                         <input type="submit"/>
                     </form>
 
-                    {/*<div className="popularFood__container">*/}
-                    {/*    <div>tuna</div>*/}
-                    {/*    <div>potatoes</div>*/}
-                    {/*    <div>chips</div>*/}
-                    {/*</div>*/}
+                    <div className="popularFood__container">
+
+                        <h3>Popular food</h3>
+                        <div>tuna</div>
+                        <div>potatoes</div>
+                        <div>chips</div>
+                    </div>
 
                 </div>
-
-                {/*<div>*/}
-                {/*    <h3>Your breakast: {this.state.eatenFood.breakfast.map((el) => {*/}
-                {/*        console.log(el[0].food.label, 'el .food');*/}
-
-
-                {/*        return <div>{el[0].food.label}</div>*/}
-                {/*    })}</h3>*/}
-
-                {/*    <h3>Your lunch: {this.state.eatenFood.lunch.map((el) => {*/}
-                {/*        console.log(el[0].food.label, 'el .food');*/}
-
-
-                {/*        return <div>{el[0].food.label}</div>*/}
-                {/*    })}</h3>*/}
-
-                {/*</div>*/}
 
                 <DailyReport eatenFood={this.state.eatenFood}/>
 

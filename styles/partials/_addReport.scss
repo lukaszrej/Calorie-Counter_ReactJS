@@ -118,9 +118,19 @@ form {
 
 .popularFood__container {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  span {
-    background-color: yellow;
+  width: 85%;
+  background-color: #F0F0F0;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+
+  div {
+    text-align: center;
+    background-color: transparent;
+  }
+  div:hover {
+    background-color: #C7E884;
   }
 }
 

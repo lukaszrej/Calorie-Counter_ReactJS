@@ -141,9 +141,17 @@ form {
 
 .popularFood__container {
   display: flex;
-  justify-content: space-between; }
-  .popularFood__container span {
-    background-color: yellow; }
+  flex-direction: column;
+  justify-content: space-between;
+  width: 85%;
+  background-color: #F0F0F0;
+  margin-bottom: 1rem;
+  margin-top: 1rem; }
+  .popularFood__container div {
+    text-align: center;
+    background-color: transparent; }
+  .popularFood__container div:hover {
+    background-color: #C7E884; }
 
 .addMeal {
   display: flex;
@@ -170,20 +178,22 @@ form {
     padding-top: 1rem;
     padding-bottom: 1rem; }
   .dailyReport__container .report__list {
-    background-color: #C7FFA0;
     width: 85%;
     text-align: center; }
     .dailyReport__container .report__list div {
       font-size: .9375rem;
       font-weight: 500;
       line-height: 1.2;
-      margin-bottom: .1875rem; }
-    .dailyReport__container .report__list div:hover {
-      background-color: #C7E884; }
+      background-color: #C7FFA0;
+      border-radius: 5px;
+      margin-top: 2%;
+      margin-bottom: 2%; }
     .dailyReport__container .report__list div > div {
       font-size: .8rem;
       font-style: italic;
-      border-bottom: dotted 2px #ccc; }
+      border-radius: 5px; }
+    .dailyReport__container .report__list div:hover {
+      background-color: #C7E884; }
 
 .container__flex--user {
   display: flex;
