@@ -6,7 +6,7 @@ class AddReport extends React.Component {
         super(props);
         this.state = {
 
-            date: '',
+            date: '2019-06-09',
 
             breakfastMeal: '',
             breakfastInput: '',
@@ -125,13 +125,6 @@ class AddReport extends React.Component {
             [input]: "",
             [showList]: false,
             eatenFood: eatenFood,
-            breakfastNutrients:
-                {
-                    kcal: Math.ceil(choosen[0].food.nutrients.ENERC_KCAL),
-                    protein: Math.ceil(choosen[0].food.nutrients.PROCNT),
-                    carbs: Math.ceil(choosen[0].food.nutrients.CHOCDF),
-                    fat: Math.ceil(choosen[0].food.nutrients.FAT)
-                }
         })
     };
 
@@ -294,7 +287,8 @@ class AddReport extends React.Component {
 
                 </div>
 
-                <DailyReport eatenFood={this.state.eatenFood}/>
+                <DailyReport eatenFood={this.state.eatenFood}
+                             date={this.state.date}/>
 
             </div>
 

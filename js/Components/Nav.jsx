@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 function Nav() {
     return (
@@ -7,9 +8,10 @@ function Nav() {
                 <div/>
                 <h1><i className="fas fa-carrot"/> Calorie Counter</h1>
                 <nav className="nav">
-                    <div className="nav"><i className="material-icons">home</i> Home</div>
-                    <div className="nav"><i className="material-icons">view_list</i> Archive</div>
-                    <div className="nav"><i className="material-icons">face</i> User</div>
+                    <NavLink exact to={"/"} className="nav"><i className="material-icons">home</i> Home</NavLink>
+                    <NavLink exact to={"/archive"} className="nav"><i
+                        className="material-icons">view_list</i> Archive</NavLink>
+                    <NavLink exact to={"/user"} className="nav"><i className="material-icons">face</i> User</NavLink>
                 </nav>
                 <div/>
             </div>

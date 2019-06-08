@@ -146,9 +146,9 @@ form {
   width: 85%;
   background-color: #F0F0F0;
   margin-bottom: 1rem;
-  margin-top: 1rem; }
+  margin-top: 1rem;
+  text-align: center; }
   .popularFood__container div {
-    text-align: center;
     background-color: transparent; }
   .popularFood__container div:hover {
     background-color: #C7E884; }

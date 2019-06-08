@@ -7,6 +7,7 @@ import UserDetails from './Components/UserDetails.jsx';
 import DailyReport from './Components/DailyReport.jsx';
 import Archive from './Components/Archive.jsx';
 import style from './../styles/main.scss';
+import {HashRouter, Route, Switch} from 'react-router-dom';
 
 class App extends React.Component {
     constructor(props) {
@@ -16,9 +17,9 @@ class App extends React.Component {
                 weight: 70,
                 height: 175,
                 age: 30,
-                gender: '',
+                gender: 'Male',
                 activity: 1.2,
-                dailyNeed: '123.00',
+                dailyNeed: null,
             },
 
             history: [],
@@ -42,9 +43,6 @@ class App extends React.Component {
     }
 
     addToHistory(dailyReport) {
-        // todo: 1. przypisac do zmiennej stary state nie mutując go (spread)
-        // todo: 2. do nowej zmiennej dodac nowy obiekt, ktory przyjdzie w argumencie dailyReport
-        // todo: 3. aktualizacja state history
         this.setState((state) => {
             const newHistory = {...state.history}; //1.
             newHistory.date = dailyReport.date;
@@ -65,7 +63,7 @@ class App extends React.Component {
             newUserDetails.gender = updatedUser.gender;
             newUserDetails.activity = updatedUser.activity;
 
-            console.log(newUserDetails.weight, 'waga z App? raczej nie');
+            console.log(newUserDetails.weight, 'waga z App');
 
             return ({
                 userDetails: newUserDetails
@@ -84,28 +82,71 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Nav/>
-                <div className="app__container">
-                    <div/>
+                <HashRouter>
 
                     <div>
-                        {this.state.showReportSite &&
-                        <AddReport dailyNeed={this.state.userDetails.dailyNeed}
-                                   setFormSubmitted={this.setFormSubmitted.bind(this)}
 
-                                   addToHistory={this.addToHistory.bind(this)}
-                                   dailyReport={this.state.dailyReport}/>
-                        }
-                        {!this.state.formSubmitted &&
-                        <FormUser setDailyNeed={this.setDailyNeed.bind(this)}
-                                  setFormSubmitted={this.setFormSubmitted.bind(this)}
-                                  updateUser={this.updateUser.bind(this)}
-                                  userDetails={this.state.userDetails}/>}
 
+                        <Nav/>
+                        <div className="app__container">
+                            <div/>
+
+
+                            <div>
+
+                                <Switch>
+                                    <Route exact path='/' render={() => {
+                                        return (
+
+                                            <div>
+                                                {this.state.showReportSite &&
+                                                <AddReport dailyNeed={this.state.userDetails.dailyNeed}
+                                                           setFormSubmitted={this.setFormSubmitted.bind(this)}
+
+                                                           addToHistory={this.addToHistory.bind(this)}
+                                                           dailyReport={this.state.dailyReport}/>
+                                                }
+                                                {!this.state.formSubmitted &&
+                                                <FormUser setDailyNeed={this.setDailyNeed.bind(this)}
+                                                          setFormSubmitted={this.setFormSubmitted.bind(this)}
+                                                          updateUser={this.updateUser.bind(this)}
+                                                          userDetails={this.state.userDetails}/>}
+
+                                            </div>
+
+
+                                        )
+
+
+                                    }}/>
+                                    <Route path='/archive' component={Archive}/>
+                                    <Route path='/user' component={UserDetails}/>
+                                </Switch>
+
+                            </div>
+
+                            {/*<div>*/}
+                            {/*    {this.state.showReportSite &&*/}
+                            {/*    <AddReport dailyNeed={this.state.userDetails.dailyNeed}*/}
+                            {/*               setFormSubmitted={this.setFormSubmitted.bind(this)}*/}
+
+                            {/*               addToHistory={this.addToHistory.bind(this)}*/}
+                            {/*               dailyReport={this.state.dailyReport}/>*/}
+                            {/*    }*/}
+                            {/*    {!this.state.formSubmitted &&*/}
+                            {/*    <FormUser setDailyNeed={this.setDailyNeed.bind(this)}*/}
+                            {/*              setFormSubmitted={this.setFormSubmitted.bind(this)}*/}
+                            {/*              updateUser={this.updateUser.bind(this)}*/}
+                            {/*              userDetails={this.state.userDetails}/>}*/}
+
+                            {/*</div>*/}
+
+                            <div/>
+                        </div>
                     </div>
 
-                    <div/>
-                </div>
+                </HashRouter>
+
             </div>
         )
     }

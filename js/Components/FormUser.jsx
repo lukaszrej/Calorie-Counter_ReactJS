@@ -7,7 +7,7 @@ class FormUser extends React.Component {
             weight: this.props.userDetails.weight,
             height: this.props.userDetails.height,
             age: this.props.userDetails.age,
-            gender: 'Male',
+            gender: this.props.userDetails.gender,
             activity: this.props.userDetails.activity
         }
     }
@@ -56,7 +56,7 @@ class FormUser extends React.Component {
                 <h3>Control your calorie intake</h3>
 
                 <form className="form__user" onSubmit={this.submitForm}>
-                    
+
                     <label>Weight (kg)
                         <input name="weight" type="number" value={this.state.weight}
                                onChange={this.changeInput}/>
