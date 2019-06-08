@@ -29,7 +29,9 @@ class AddReport extends React.Component {
 
             showBreakfastList: false,
             showLunchList: false,
-            showDinnerList: false
+            showDinnerList: false,
+
+            loaderVisibility: false
         }
     }
 
@@ -74,13 +76,28 @@ class AddReport extends React.Component {
         const url = `https://api.edamam.com/api/food-database/parser?nutrition-type=logging&app_id=95cca2e7&app_key=` +
             `82a7588a4ea9d81983e0794927c8cee6&ingr=${food}`;
 
-        fetch(url).then(res => res.json()).then(json => {
+        this.setState({
+            loaderVisibility: true
+        });
 
-            this.setState({
-                [meal]: json.hints
-            })
+        fetch(url).then(res => res.json())
+            .then(json => {
 
-        })
+                this.setState({
+                    [meal]: json.hints,
+                    loaderVisibility: false
+                });
+
+                if (json.hints.length == 0) {
+                    alert('nothing found');
+                    this.setState({
+                        breakfastInput: '',
+                        lunchInput: '',
+                        dinnerInput: ''
+                    })
+                }
+
+            }).catch(() => console.log('Problem with the server'));
     };
 
     handleListItemClick = (e, mealName, foodId) => {
@@ -150,6 +167,9 @@ class AddReport extends React.Component {
 
                     <h3>Your daily calorie need is: {this.props.dailyNeed}</h3>
 
+                    {/*loader - global reach*/}
+                    {this.state.loaderVisibility && <div className="loader"></div>}
+
                     <label>
                         <input type="date" name="date" value={this.state.date} onChange={this.handleChange}/>
                     </label>
@@ -161,6 +181,7 @@ class AddReport extends React.Component {
                         }
 
                         {/* b r e a k f a s t */}
+
                         <label>
                             <div className="addMeal">
                                 <div><h3>Breakfast</h3></div>
@@ -171,6 +192,9 @@ class AddReport extends React.Component {
                         </label>
 
                         <button onClick={(e) => this.handleClick(e, "breakfastMeal")}>Find</button>
+
+
+                        {/*{this.state.breakfastMeal.length == 0 && <div>nicccc</div>}*/}
 
                         {this.state.showBreakfastList &&
                         <ul className="result__list">{this.state.breakfastMeal && this.state.breakfastMeal.map((el, index) => {
@@ -278,17 +302,20 @@ class AddReport extends React.Component {
                     </form>
 
                     <div className="popularFood__container">
-                        <h3>Popular food</h3>
-                        <div>tuna</div>
-                        <div>potatoes</div>
+                        <h2>Don't cheat</h2>
+                        <h3>Select your snack or sweet you have eaten today</h3>
                         <div>chips</div>
+                        <div>chocolate</div>
+                        <div>coca cola</div>
+                        <div>snickers</div>
                     </div>
 
                 </div>
 
                 <DailyReport eatenFood={this.state.eatenFood}
                              date={this.state.date}
-                             dailyNeed={this.props.dailyNeed}/>
+                             dailyNeed={this.props.dailyNeed}
+                             showBreakfastList={this.state.showBreakfastList}/>
             </div>
 
         );

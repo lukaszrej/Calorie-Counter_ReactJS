@@ -86,11 +86,11 @@ class FormUser extends React.Component {
                     <label htmlFor="activity">
                         <p>Physical activity level</p>
                         <select name="activity" value={this.state.activity} onChange={this.changeInput}>
-                            <option value={"1.2"}>Sedentary (little or no exercise)</option>
-                            <option value={"1.375"}>Lightly active (light exercise 1-3 days/week)</option>
-                            <option value={"1.55"}>Moderately active (moderate exercise 3-5 days/week)</option>
-                            <option value={"1.725"}>Very active (hard exercise 6-7 days a week)</option>
-                            <option value={"1.9"}>Extra active (very hard exercise & physical job</option>
+                            <option value="1.2">Sedentary (little or no exercise)</option>
+                            <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                            <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
+                            <option value="1.725">Very active (hard exercise 6-7 days a week)</option>
+                            <option value="1.9">Extra active (very hard exercise & physical job</option>
                         </select>
                     </label>
 
