@@ -13,10 +13,10 @@ class DailyReport extends React.Component {
 
         return (
             <div className="dailyReport__container">
-                <h3>It's your daily report</h3>
+                <h3>It's your daily report of {this.props.date}</h3>
 
                 <ul className="report__list">
-                    <h3>Breakfast of {this.props.date}</h3>
+                    <h3>Breakfast</h3>
                     {this.props.eatenFood.breakfast.map((el, index) => {
                         return <div>
                             {el[0].food.label.toLowerCase()}

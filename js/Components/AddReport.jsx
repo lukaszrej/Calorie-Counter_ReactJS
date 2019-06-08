@@ -278,7 +278,6 @@ class AddReport extends React.Component {
                     </form>
 
                     <div className="popularFood__container">
-
                         <h3>Popular food</h3>
                         <div>tuna</div>
                         <div>potatoes</div>
@@ -288,8 +287,8 @@ class AddReport extends React.Component {
                 </div>
 
                 <DailyReport eatenFood={this.state.eatenFood}
-                             date={this.state.date}/>
-
+                             date={this.state.date}
+                             dailyNeed={this.props.dailyNeed}/>
             </div>
 
         );
