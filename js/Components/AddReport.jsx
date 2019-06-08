@@ -181,7 +181,6 @@ class AddReport extends React.Component {
                         }
 
                         {/* b r e a k f a s t */}
-
                         <label>
                             <div className="addMeal">
                                 <div><h3>Breakfast</h3></div>
@@ -192,9 +191,6 @@ class AddReport extends React.Component {
                         </label>
 
                         <button onClick={(e) => this.handleClick(e, "breakfastMeal")}>Find</button>
-
-
-                        {/*{this.state.breakfastMeal.length == 0 && <div>nicccc</div>}*/}
 
                         {this.state.showBreakfastList &&
                         <ul className="result__list">{this.state.breakfastMeal && this.state.breakfastMeal.map((el, index) => {
@@ -304,10 +300,10 @@ class AddReport extends React.Component {
                     <div className="popularFood__container">
                         <h2>Don't cheat</h2>
                         <h3>Select your snack or sweet you have eaten today</h3>
-                        <div>chips</div>
-                        <div>chocolate</div>
-                        <div>coca cola</div>
-                        <div>snickers</div>
+                        <div>Chips</div>
+                        <div>Chocolate</div>
+                        <div>Coca cola</div>
+                        <div>Snickers</div>
                     </div>
 
                 </div>
@@ -315,7 +311,8 @@ class AddReport extends React.Component {
                 <DailyReport eatenFood={this.state.eatenFood}
                              date={this.state.date}
                              dailyNeed={this.props.dailyNeed}
-                             showBreakfastList={this.state.showBreakfastList}/>
+                             dailyReport={this.state.dailyReport}
+                />
             </div>
 
         );

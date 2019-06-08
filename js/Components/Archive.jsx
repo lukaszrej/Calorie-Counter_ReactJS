@@ -2,7 +2,10 @@ import React from 'react';
 
 function Archive(props) {
     return (
-        <h2>Archive</h2>
+        <div className="addReport__container">
+            <h3>Archive</h3>
+            <p>Here will be a site with your added daily reports. &#x1F525;</p>
+        </div>
     )
 }
 

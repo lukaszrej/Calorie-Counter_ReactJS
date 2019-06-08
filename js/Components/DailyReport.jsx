@@ -25,7 +25,7 @@ class DailyReport extends React.Component {
 
                     })}
                 </ul>
-                
+
                 <ul className="report__list">
                     <h3>Lunch</h3>
                     {this.props.eatenFood.lunch.map((el, index) => {
