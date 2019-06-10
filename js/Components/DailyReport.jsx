@@ -48,6 +48,10 @@ class DailyReport extends React.Component {
                     })}
                 </ul>
 
+                <p>Total</p>
+
+                {console.log(this.props.dailyReport, 'dailyreport z DailyReport')}
+
             </div>
         );
     }

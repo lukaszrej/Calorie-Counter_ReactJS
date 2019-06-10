@@ -4,7 +4,7 @@ The project was created during front-end bootcamp - CodersLab (based in Warsaw).
 
 ## Technologies used for this project
 * [Sass](https://sass-lang.com/)
-* [React](https://reactjs.org/)
+* [React (ReactDOM, React-Router)](https://reactjs.org/)
 
 ## Configuration
 

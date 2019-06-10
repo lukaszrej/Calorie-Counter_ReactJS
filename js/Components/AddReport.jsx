@@ -88,7 +88,7 @@ class AddReport extends React.Component {
                     loaderVisibility: false
                 });
 
-                if (json.hints.length == 0) {
+                if (json.hints.length === 0) {
                     alert('nothing found');
                     this.setState({
                         breakfastInput: '',
@@ -96,6 +96,8 @@ class AddReport extends React.Component {
                         dinnerInput: ''
                     })
                 }
+
+                console.log(json.hints, 'hiiiiints');
 
             }).catch(() => console.log('Problem with the server'));
     };
@@ -150,10 +152,17 @@ class AddReport extends React.Component {
 
         const dailyReport = {};
         const date = this.state.date;
+        const eatenFood = this.state.eatenFood;
+        dailyReport.date = date;
+        dailyReport.eatenFood = eatenFood;
+
+        console.log(dailyReport, 'daily report');
 
         this.setState({
             dailyReport: dailyReport
-        })
+        });
+
+
     };
 
     render() {
@@ -167,7 +176,6 @@ class AddReport extends React.Component {
 
                     <h3>Your daily calorie need is: {this.props.dailyNeed}</h3>
 
-                    {/*loader - global reach*/}
                     {this.state.loaderVisibility && <div className="loader"></div>}
 
                     <label>
