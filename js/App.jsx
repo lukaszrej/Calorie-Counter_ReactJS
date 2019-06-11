@@ -95,7 +95,11 @@ class App extends React.Component {
                                             <AddReport dailyNeed={this.state.userDetails.dailyNeed}
                                                        setFormSubmitted={this.setFormSubmitted.bind(this)}
                                                        addToHistory={this.addToHistory.bind(this)}
-                                                       dailyReport={this.state.dailyReport}/>
+                                                       dailyReport={this.state.dailyReport}
+
+                                                       userDetails={this.state.userDetails}
+
+                                            />
                                             }
                                             {!this.state.formSubmitted &&
                                             <FormUser setDailyNeed={this.setDailyNeed.bind(this)}

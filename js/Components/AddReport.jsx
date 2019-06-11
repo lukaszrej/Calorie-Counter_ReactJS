@@ -320,8 +320,12 @@ class AddReport extends React.Component {
                 <DailyReport eatenFood={this.state.eatenFood}
                              date={this.state.date}
                              dailyNeed={this.props.dailyNeed}
-                             dailyReport={this.state.dailyReport}
-                />
+                             dailyReport={this.state.dailyReport}/>
+
+                <UserDetails
+                    dailyNeed={this.props.userDetails.dailyNeed}
+                    userDetails={this.props.userDetails}/>
+
             </div>
 
         );
