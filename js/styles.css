@@ -4,14 +4,20 @@
   padding: 0;
   margin: 0; }
 
+a {
+  text-decoration: none; }
+
+ul, ol {
+  list-style: none; }
+
+button:focus-within {
+  outline: none; }
+
 html {
   font-family: 'Mukta', sans-serif; }
 
 body {
   background-color: #F8F8F8; }
-
-a {
-  text-decoration: none; }
 
 .fa, .fas {
   font-weight: 300; }
@@ -29,11 +35,11 @@ a {
   width: 100%;
   font-weight: 300;
   padding: .2rem 1rem;
-  border-bottom: .6px solid #FF9966;
-  background-color: white; }
+  border-bottom: 0.6px solid #FF9966;
+  background-color: #FFFFFF; }
   .header .container {
     display: grid;
-    grid-template-columns: 15% auto  auto 15%; }
+    grid-template-columns: 5% auto  auto 5%; }
   .header h1 {
     font-size: 1.6rem;
     font-style: italic; }
@@ -75,7 +81,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.5rem;
+  padding: .5rem;
   border-radius: 1%;
   background-color: #F0F0F0; }
 
@@ -151,11 +157,11 @@ form {
     top: 0;
     z-index: 999; }
     .addReport__container .loader:after {
-      border: 26px solid #f3f3f3;
+      border: 2.4rem solid #f3f3f3;
       border-radius: 50%;
-      border-top: 26px solid #FF991F;
-      width: 150px;
-      height: 150px;
+      border-top: 2.4rem solid #FF991F;
+      width: 16rem;
+      height: 16rem;
       display: block;
       -webkit-animation: spin 2s linear infinite;
       /* Safari */
@@ -164,8 +170,8 @@ form {
       content: '';
       left: 50%;
       top: 50%;
-      margin-left: -60px;
-      margin-top: -60px; }
+      margin-left: -8rem;
+      margin-top: -8rem; }
 
 @-webkit-keyframes spin {
   0% {

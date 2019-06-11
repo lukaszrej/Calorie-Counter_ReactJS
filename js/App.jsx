@@ -83,7 +83,7 @@ class App extends React.Component {
             <HashRouter>
 
                 <div>
-                    <Nav/>
+                    {this.state.showReportSite && <Nav/>}
                     <div className="app__container">
                         <div/>
                         <div>

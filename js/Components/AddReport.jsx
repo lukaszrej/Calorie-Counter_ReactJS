@@ -1,5 +1,6 @@
 import React from 'react';
 import DailyReport from './DailyReport.jsx';
+import UserDetails from "./UserDetails.jsx";
 
 class AddReport extends React.Component {
     constructor(props) {
