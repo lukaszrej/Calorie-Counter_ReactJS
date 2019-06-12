@@ -31,6 +31,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: forestgreen;
 
   .result__list {
     background-color: $apiResultsBGColor;
@@ -130,11 +131,11 @@ form {
     z-index: 999;
 
     &:after {
-      border: 2.4rem solid #f3f3f3;
+      border: 1.6rem solid #f3f3f3;
       border-radius: 50%;
-      border-top: 2.4rem solid $inputSubmitBGColor;
-      width: 16rem;
-      height: 16rem;
+      border-top: 1.6rem solid $inputSubmitBGColor;
+      width: 12rem;
+      height: 12rem;
       display: block;
       -webkit-animation: spin 2s linear infinite; /* Safari */
       animation: spin 2s linear infinite;
@@ -143,8 +144,8 @@ form {
       left: 50%;
       top: 50%;
       //transform: translateX(-50%) translateY(-50%);
-      margin-left: -8rem;
-      margin-top: -8rem;
+      margin-left: -6rem;
+      margin-top: -6rem;
     }
 
   }

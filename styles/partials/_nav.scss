@@ -1,13 +1,12 @@
 .header {
   width: 100%;
   font-weight: 300;
-  padding: .2rem 1rem;
   border-bottom: .6px solid $navBorderColor;
   background-color: $navBGColor;
 
   .container {
     display: grid;
-    grid-template-columns: 5% auto  auto 5%;
+    grid-template-columns: 5% auto auto 5%;
   }
 
   h1 {
@@ -19,6 +18,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: red;
+
+    //.nav__link {
+    //  background-color: dimgrey;
+    //}
+
     i {
       font-size: 1.3rem;
       padding-right: .4rem;

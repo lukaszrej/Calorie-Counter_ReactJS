@@ -6,26 +6,26 @@ function UserDetails(props) {
     let activityText = '';
     switch (activity) {
         case 1.2:
-            activityText = 'Sedentary (little or no exercise)';
+            activityText = 'Sedentary';
             break;
         case 1.375:
-            activityText = 'Lightly active (light exercise 1-3 days/week)';
+            activityText = 'Lightly active';
             break;
         case 1.55:
-            activityText = 'Moderately active (moderate exercise 3-5 days/week)';
+            activityText = 'Moderately active';
             break;
         case 1.725:
-            activityText = 'Very active (hard exercise 6-7 days a week)';
+            activityText = 'Very active';
             break;
         case 1.9:
-            activityText = 'Extra active (very hard exercise & physical job';
+            activityText = 'Extra active';
             break;
         default:
             console.log('Something went wrong, we are out of ' + activityText + '.');
     }
 
     return (
-        <div className="addReport__container">
+        <div className="user__container">
             <h3>User Details</h3>
             <p>Daily calorie need: {props.dailyNeed} kcal</p>
             <p>Age: {props.userDetails.age} years old</p>

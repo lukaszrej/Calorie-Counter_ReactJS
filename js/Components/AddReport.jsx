@@ -159,8 +159,18 @@ class AddReport extends React.Component {
 
         console.log(dailyReport, 'daily report');
 
+        if (typeof this.props.addToHistory === "function") {
+            this.props.addToHistory(dailyReport);
+        }
+
         this.setState({
-            dailyReport: dailyReport
+
+            eatenFood: {
+                breakfast: [],
+                lunch: [],
+                dinner: []
+            }
+            // dailyReport: dailyReport
         });
 
 
@@ -172,7 +182,14 @@ class AddReport extends React.Component {
         console.log(eatenFood, 'eatenfooddd');
 
         return (
+
+
             <div className="dashboard">
+
+                <UserDetails
+                    dailyNeed={this.props.userDetails.dailyNeed}
+                    userDetails={this.props.userDetails}/>
+
                 <div className="addReport__container">
 
                     <h3>Your daily calorie need is: {this.props.dailyNeed}</h3>
@@ -320,11 +337,8 @@ class AddReport extends React.Component {
                 <DailyReport eatenFood={this.state.eatenFood}
                              date={this.state.date}
                              dailyNeed={this.props.dailyNeed}
-                             dailyReport={this.state.dailyReport}/>
-
-                <UserDetails
-                    dailyNeed={this.props.userDetails.dailyNeed}
-                    userDetails={this.props.userDetails}/>
+                             // dailyReport={this.state.dailyReport}
+                />
 
             </div>
 

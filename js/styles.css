@@ -28,24 +28,24 @@ body {
 
 .dashboard {
   display: grid;
-  grid-template-columns: 40% 40% 20%; }
+  grid-template-columns: 25% 40% 35%; }
 
 .header {
   width: 100%;
   font-weight: 300;
-  padding: .2rem 1rem;
   border-bottom: 0.6px solid #FF9966;
   background-color: #FFFFFF; }
   .header .container {
     display: grid;
-    grid-template-columns: 5% auto  auto 5%; }
+    grid-template-columns: 5% auto auto 5%; }
   .header h1 {
     font-size: 1.6rem;
     font-style: italic; }
   .header .nav {
     display: flex;
     align-items: center;
-    justify-content: space-between; }
+    justify-content: space-between;
+    background-color: red; }
     .header .nav i {
       font-size: 1.3rem;
       padding-right: .4rem; }
@@ -88,6 +88,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: forestgreen;
   /* Safari */ }
   .addReport__container .result__list {
     background-color: #C7FFA0;
@@ -156,11 +157,11 @@ form {
     top: 0;
     z-index: 999; }
     .addReport__container .loader:after {
-      border: 2.4rem solid #f3f3f3;
+      border: 1.6rem solid #f3f3f3;
       border-radius: 50%;
-      border-top: 2.4rem solid #FF991F;
-      width: 16rem;
-      height: 16rem;
+      border-top: 1.6rem solid #FF991F;
+      width: 12rem;
+      height: 12rem;
       display: block;
       -webkit-animation: spin 2s linear infinite;
       /* Safari */
@@ -169,8 +170,8 @@ form {
       content: '';
       left: 50%;
       top: 50%;
-      margin-left: -8rem;
-      margin-top: -8rem; }
+      margin-left: -6rem;
+      margin-top: -6rem; }
 
 @-webkit-keyframes spin {
   0% {
@@ -218,7 +219,8 @@ form {
 .dailyReport__container {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  background-color: yellowgreen; }
   .dailyReport__container h3 {
     padding-top: 1rem;
     padding-bottom: 1rem; }
@@ -259,3 +261,12 @@ form {
     padding-bottom: 2%; }
   .container__flex--user label[for=activity] p {
     text-align: center; }
+
+.user__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: greenyellow; }
+  .user__container h3 {
+    padding-top: 1rem;
+    padding-bottom: 1rem; }

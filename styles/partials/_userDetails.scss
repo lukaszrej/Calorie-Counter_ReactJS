@@ -1,0 +1,11 @@
+.user__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: greenyellow;
+
+  h3 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}

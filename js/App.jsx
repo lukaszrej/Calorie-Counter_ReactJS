@@ -44,9 +44,9 @@ class App extends React.Component {
 
     addToHistory(dailyReport) {
         this.setState((state) => {
-            const newHistory = {...state.history}; //1.
-            newHistory.date = dailyReport.date;
-            newHistory.breakfastNutrients = dailyReport.breakfastNutrients;
+            const newHistory = [...state.history];
+
+            newHistory.push(dailyReport);
 
             return ({
                 history: newHistory
@@ -112,7 +112,7 @@ class App extends React.Component {
                                 }}/>
                                 <Route exact path='/archive' render={() => {
                                     return (
-                                        <Archive/>
+                                        <Archive history={this.state.history}/>
                                     )
                                 }}/>
                                 <Route exact path='/user' render={() => {
