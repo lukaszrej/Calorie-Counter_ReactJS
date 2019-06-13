@@ -1,0 +1,16 @@
+
+
+
+.battery__container {
+  display: flex;
+  justify-content: center;
+  background-color: yellowgreen;
+
+  margin: .4rem;
+  border-radius: 2.4%;
+
+  i {
+    font-size: 6rem;
+    color: white;
+  }
+}

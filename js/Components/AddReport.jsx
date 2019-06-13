@@ -1,5 +1,6 @@
 import React from 'react';
 import DailyReport from './DailyReport.jsx';
+import Battery from "./Battery.jsx";
 import UserDetails from "./UserDetails.jsx";
 
 class AddReport extends React.Component {
@@ -186,8 +187,7 @@ class AddReport extends React.Component {
 
                     <DailyReport eatenFood={this.state.eatenFood}
                                  date={this.state.date}
-                                 dailyNeed={this.props.dailyNeed}
-                    />
+                                 dailyNeed={this.props.dailyNeed}/>
                 </div>
 
 
@@ -335,7 +335,13 @@ class AddReport extends React.Component {
 
                 </div>
 
-                <div/>
+                <div>
+                    <div className="addReport__container">
+                        <h3>Charge your batteries</h3>
+                    </div>
+                    <Battery/>
+                </div>
+
 
             </div>
 

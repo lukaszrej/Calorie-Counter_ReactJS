@@ -61,59 +61,50 @@ class FormUser extends React.Component {
         return (
             <div className="container__flex--user">
 
-                <button className="startButton" onClick={this.letsStart}>START</button>
+                <h3>Control your calorie intake</h3>
 
-                {this.state.start &&
-                <div>
+                <form className="form__user" onSubmit={this.submitForm}>
 
-                    <h3>Control your calorie intake</h3>
+                    <label>Weight (kg)
+                        <input name="weight" type="number" value={this.state.weight}
+                               onChange={this.changeInput}/>
+                    </label>
+                    <label>Height (cm)
+                        <input name="height" type="number" value={this.state.height}
+                               onChange={this.changeInput}/>
+                    </label>
+                    <label>Age (years)
+                        <input name="age" type="number" value={this.state.age}
+                               onChange={this.changeInput}/>
+                    </label>
 
-                    <form className="form__user" onSubmit={this.submitForm}>
+                    <label style={{display: "flex"}}>
+                        <div>
+                            <label htmlFor="Male">Male</label>
+                            <input name="gender" type="radio" value="Male" onChange={this.changeInput}
+                                   checked={(this.state.gender === "Male")}/>
+                        </div>
+                        <div>
+                            <label htmlFor="Female">Female</label>
+                            <input name="gender" type="radio" value="Female" onChange={this.changeInput}
+                                   checked={(this.state.gender === "Female")}/>
+                        </div>
+                    </label>
 
-                        <label>Weight (kg)
-                            <input name="weight" type="number" value={this.state.weight}
-                                   onChange={this.changeInput}/>
-                        </label>
-                        <label>Height (cm)
-                            <input name="height" type="number" value={this.state.height}
-                                   onChange={this.changeInput}/>
-                        </label>
-                        <label>Age (years)
-                            <input name="age" type="number" value={this.state.age}
-                                   onChange={this.changeInput}/>
-                        </label>
+                    <label htmlFor="activity">
+                        <p>Physical activity level</p>
+                        <select name="activity" value={this.state.activity} onChange={this.changeInput}>
+                            <option value="1.2">Sedentary (little or no exercise)</option>
+                            <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                            <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
+                            <option value="1.725">Very active (hard exercise 6-7 days a week)</option>
+                            <option value="1.9">Extra active (very hard exercise & physical job</option>
+                        </select>
+                    </label>
 
-                        <label style={{display: "flex"}}>
-                            <div>
-                                <label htmlFor="Male">Male</label>
-                                <input name="gender" type="radio" value="Male" onChange={this.changeInput}
-                                       checked={(this.state.gender === "Male")}/>
-                            </div>
-                            <div>
-                                <label htmlFor="Female">Female</label>
-                                <input name="gender" type="radio" value="Female" onChange={this.changeInput}
-                                       checked={(this.state.gender === "Female")}/>
-                            </div>
-                        </label>
+                    <label><input type="submit" value="Submit"/></label>
 
-                        <label htmlFor="activity">
-                            <p>Physical activity level</p>
-                            <select name="activity" value={this.state.activity} onChange={this.changeInput}>
-                                <option value="1.2">Sedentary (little or no exercise)</option>
-                                <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
-                                <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
-                                <option value="1.725">Very active (hard exercise 6-7 days a week)</option>
-                                <option value="1.9">Extra active (very hard exercise & physical job</option>
-                            </select>
-                        </label>
-
-                        <label><input type="submit" value="Submit"/></label>
-
-                    </form>
-
-                </div>
-                }
-
+                </form>
 
             </div>
         );
