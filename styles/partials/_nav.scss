@@ -6,7 +6,12 @@
 
   .container {
     display: grid;
-    grid-template-columns: 5% auto auto 5%;
+    grid-template-columns: 5% auto 5%;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
   }
 
   h1 {
@@ -18,32 +23,36 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: red;
 
-    //.nav__link {
-    //  background-color: dimgrey;
-    //}
+    .nav__link {
+      padding-right: 1rem;
+    }
 
     i {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       padding-right: .4rem;
     }
   }
 
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 450px) {
     .container {
       display: grid;
       grid-template-columns: auto;
     }
+
+    .flex {
+      flex-direction: column;
+    }
+
     h1 {
       text-align: center;
     }
     .nav {
       justify-content: space-evenly;
+      align-items: center;
       padding-bottom: .4rem;
     }
   }
-
 
 
 }

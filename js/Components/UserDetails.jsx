@@ -27,7 +27,7 @@ function UserDetails(props) {
     return (
         <div className="user__container">
             <h3>User Details</h3>
-            <p>Daily calorie need: {props.dailyNeed} kcal</p>
+            <p>Calorie need: {props.dailyNeed} kcal</p>
             <p>Age: {props.userDetails.age} years old</p>
             <p>Gender: {props.userDetails.gender}</p>
             <p>Weight: {props.userDetails.weight} kg</p>

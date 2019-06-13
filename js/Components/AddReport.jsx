@@ -7,7 +7,7 @@ class AddReport extends React.Component {
         super(props);
         this.state = {
 
-            date: '2019-06-09',
+            date: '2019-06-15',
 
             breakfastMeal: '',
             breakfastInput: '',
@@ -98,8 +98,6 @@ class AddReport extends React.Component {
                     })
                 }
 
-                console.log(json.hints, 'hiiiiints');
-
             }).catch(() => console.log('Problem with the server'));
     };
 
@@ -157,38 +155,41 @@ class AddReport extends React.Component {
         dailyReport.date = date;
         dailyReport.eatenFood = eatenFood;
 
-        console.log(dailyReport, 'daily report');
-
         if (typeof this.props.addToHistory === "function") {
             this.props.addToHistory(dailyReport);
         }
 
         this.setState({
-
             eatenFood: {
                 breakfast: [],
                 lunch: [],
                 dinner: []
             }
-            // dailyReport: dailyReport
         });
 
+        alert('The form of ' + this.state.date + ' has been correctly submitted');
 
     };
 
     render() {
 
         const eatenFood = this.state.eatenFood;
-        console.log(eatenFood, 'eatenfooddd');
 
         return (
 
-
             <div className="dashboard">
 
-                <UserDetails
-                    dailyNeed={this.props.userDetails.dailyNeed}
-                    userDetails={this.props.userDetails}/>
+                <div>
+                    <UserDetails
+                        dailyNeed={this.props.userDetails.dailyNeed}
+                        userDetails={this.props.userDetails}/>
+
+                    <DailyReport eatenFood={this.state.eatenFood}
+                                 date={this.state.date}
+                                 dailyNeed={this.props.dailyNeed}
+                    />
+                </div>
+
 
                 <div className="addReport__container">
 
@@ -334,11 +335,7 @@ class AddReport extends React.Component {
 
                 </div>
 
-                <DailyReport eatenFood={this.state.eatenFood}
-                             date={this.state.date}
-                             dailyNeed={this.props.dailyNeed}
-                             // dailyReport={this.state.dailyReport}
-                />
+                <div/>
 
             </div>
 

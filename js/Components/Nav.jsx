@@ -6,12 +6,16 @@ function Nav() {
         <header className="header">
             <div className="container">
                 <div/>
-                <h1><i className="fas fa-carrot"/> Calorie Counter</h1>
-                <nav className="nav">
-                    <NavLink exact to={"/"} className="nav__link"><i className="material-icons">home</i>Dashboard</NavLink>
-                    <NavLink exact to={"/archive"} className="nav__link"><i
-                        className="material-icons">view_list</i>Archive</NavLink>
-                </nav>
+                <div className="flex">
+                    <h1><i className="fas fa-carrot"/> Calorie Counter</h1>
+                    <nav className="nav">
+                        <NavLink className="nav nav__link" exact to="/"><i
+                            className="material-icons">home</i>Dashboard</NavLink>
+                        <NavLink className="nav nav__link" exact to="/archive"><i
+                            className="material-icons">view_list</i>Archive</NavLink>
+                    </nav>
+                </div>
+
                 <div/>
             </div>
         </header>

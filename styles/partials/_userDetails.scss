@@ -4,8 +4,15 @@
   align-items: center;
   background-color: greenyellow;
 
+  margin: .4rem;
+  border-radius: 2.4%;
+
   h3 {
     padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  p:last-child {
     padding-bottom: 1rem;
   }
 }

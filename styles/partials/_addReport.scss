@@ -31,7 +31,10 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: forestgreen;
+  background-color: greenyellow;
+
+  margin: .4rem;
+  border-radius: 1%;
 
   .result__list {
     background-color: $apiResultsBGColor;
