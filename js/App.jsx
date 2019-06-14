@@ -62,8 +62,6 @@ class App extends React.Component {
             newUserDetails.gender = updatedUser.gender;
             newUserDetails.activity = updatedUser.activity;
 
-            console.log(newUserDetails.weight, 'waga z App');
-
             return ({
                 userDetails: newUserDetails
             })
@@ -95,7 +93,6 @@ class App extends React.Component {
                                             <AddReport dailyNeed={this.state.userDetails.dailyNeed}
                                                        setFormSubmitted={this.setFormSubmitted.bind(this)}
                                                        addToHistory={this.addToHistory.bind(this)}
-                                                       dailyReport={this.state.dailyReport}
 
                                                        userDetails={this.state.userDetails}
 

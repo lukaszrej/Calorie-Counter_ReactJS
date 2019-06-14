@@ -120,6 +120,9 @@ form {
     padding-bottom: 1rem; }
   .addReport__container form {
     width: 100%; }
+    .addReport__container form h3 {
+      padding-top: .4rem;
+      padding-bottom: .4rem; }
   .addReport__container label {
     width: 100%; }
   .addReport__container input[type=text] {

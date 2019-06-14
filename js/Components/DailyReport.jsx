@@ -8,8 +8,8 @@ class DailyReport extends React.Component {
 
     render() {
 
-        console.log(this.props.eatenFood);
-        console.log(this.props.date);
+        // console.log(this.props.eatenFood);
+        // console.log(this.props.date);
 
         return (
             <div className="dailyReport__container">
@@ -19,7 +19,8 @@ class DailyReport extends React.Component {
                 <ul className="report__list">
                     <h4>Breakfast</h4>
                     {this.props.eatenFood.breakfast.map((el, index) => {
-                        return <div>
+
+                        return <div key={el.map((el) => el.food.foodId + index)}>
                             {el[0].food.label.toLowerCase()}
                             <div>{Math.ceil(el[0].food.nutrients.ENERC_KCAL) + " kcal"}</div>
                         </div>
@@ -30,7 +31,10 @@ class DailyReport extends React.Component {
                 <ul className="report__list">
                     <h4>Lunch</h4>
                     {this.props.eatenFood.lunch.map((el, index) => {
-                        return <div>
+
+                        console.log(el.map((el) => el.food.foodId), 'elllID breakfast');
+
+                        return <div key={el.map((el) => el.food.foodId + index)}>
                             {el[0].food.label.toLowerCase()}
                             <div>{Math.ceil(el[0].food.nutrients.ENERC_KCAL) + " kcal"}</div>
                         </div>
@@ -41,7 +45,7 @@ class DailyReport extends React.Component {
                 <ul className="report__list">
                     <h4>Dinner</h4>
                     {this.props.eatenFood.dinner.map((el, index) => {
-                        return <div>
+                        return <div key={el.map((el) => el.food.foodId + index)}>
                             {el[0].food.label.toLowerCase()}
                             <div>{Math.ceil(el[0].food.nutrients.ENERC_KCAL) + " kcal"}</div>
                         </div>
@@ -50,8 +54,6 @@ class DailyReport extends React.Component {
                 </ul>
 
                 <p>Total</p>
-
-                {console.log(this.props.dailyReport, 'dailyreport z DailyReport')}
 
             </div>
         );

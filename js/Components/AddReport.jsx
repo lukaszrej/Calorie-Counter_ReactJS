@@ -193,8 +193,6 @@ class AddReport extends React.Component {
 
                 <div className="addReport__container">
 
-                    <h3>Your daily calorie need is: {this.props.dailyNeed}</h3>
-
                     {this.state.loaderVisibility && <div className="loader"></div>}
 
                     <label>
@@ -324,14 +322,6 @@ class AddReport extends React.Component {
                         <input type="submit"/>
                     </form>
 
-                    <div className="popularFood__container">
-                        <h2>Don't cheat</h2>
-                        <h3>Select your snack or sweet you have eaten today</h3>
-                        <div>Chips</div>
-                        <div>Chocolate</div>
-                        <div>Coca cola</div>
-                        <div>Snickers</div>
-                    </div>
 
                 </div>
 
@@ -339,7 +329,9 @@ class AddReport extends React.Component {
                     <div className="addReport__container">
                         <h3>Charge your batteries</h3>
                     </div>
-                    <Battery/>
+                    <div className="addReport__container">
+                        <h3>Your daily calorie need is: {this.props.dailyNeed}</h3>
+                    </div>
                 </div>
 
 
