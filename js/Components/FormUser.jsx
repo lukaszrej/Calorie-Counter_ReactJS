@@ -4,8 +4,6 @@ class FormUser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            start: false,
-
             weight: this.props.userDetails.weight,
             height: this.props.userDetails.height,
             age: this.props.userDetails.age,
@@ -13,12 +11,6 @@ class FormUser extends React.Component {
             activity: this.props.userDetails.activity
         }
     }
-
-    letsStart = () => {
-        this.setState({
-            start: !this.state.start
-        })
-    };
 
     changeInput = (e) => {
         const target = e.target;

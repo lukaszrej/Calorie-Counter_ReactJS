@@ -95,7 +95,6 @@ class App extends React.Component {
                                                        addToHistory={this.addToHistory.bind(this)}
 
                                                        userDetails={this.state.userDetails}
-
                                             />
                                             }
                                             {!this.state.formSubmitted &&

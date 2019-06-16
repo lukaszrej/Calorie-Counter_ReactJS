@@ -9,9 +9,11 @@ input, select {
 }
 
 input[type=submit] {
+  width: 85%;
   background-color: $inputSubmitBGColor;
   border-radius: 1%;
   color: #F0F0F0;
+  border: none;
 }
 
 input:focus, select:focus {
@@ -31,7 +33,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: greenyellow;
+  background-color: #F0F0F0;
 
   margin: .4rem;
   border-radius: 1%;
@@ -47,7 +49,6 @@ form {
       line-height: 1.2;
       margin-bottom: .1875rem;
       cursor: pointer;
-
     }
 
     div:hover {
@@ -177,27 +178,26 @@ form {
     }
   }
 
-
 }
 
-.popularFood__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  background-color: #F0F0F0;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  text-align: center;
-
-  div {
-    background-color: transparent;
-  }
-
-  div:hover {
-    background-color: #C7E884;
-  }
-}
+//.popularFood__container {
+//  display: flex;
+//  flex-direction: column;
+//  justify-content: space-between;
+//  width: 100%;
+//  background-color: #F0F0F0;
+//  margin-bottom: 1rem;
+//  margin-top: 1rem;
+//  text-align: center;
+//
+//  div {
+//    background-color: transparent;
+//  }
+//
+//  div:hover {
+//    background-color: #C7E884;
+//  }
+//}
 
 .addMeal {
   display: flex;
@@ -218,4 +218,37 @@ form {
 .addMeal > input {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+input[type=date] {
+  margin: 0 auto;
+  width: 100%;
+  font-family: 'Mukta', sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  background-color: #F0F0F0;
+  outline: none;
+  border: 0;
+  left: 50%;
+
+  &::-webkit-clear-button {
+    display: none;
+  }
+  //&::-webkit-inner-spin-button {
+  //  height: 30px;
+  //}
+  &::-webkit-calendar-picker-indicator {
+    font-size: 18px;
+    color: $inputSubmitBGColor;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: lighten($inputSubmitBGColor,40%);
+      color: darken(black, 10%);
+      cursor: pointer;
+    }
+    &:active {
+      color: blue;
+    }
+  }
 }

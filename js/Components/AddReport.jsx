@@ -190,137 +190,142 @@ class AddReport extends React.Component {
                                  dailyNeed={this.props.dailyNeed}/>
                 </div>
 
-
-                <div className="addReport__container">
+                <div>
 
                     {this.state.loaderVisibility && <div className="loader"></div>}
 
-                    <label>
-                        <input type="date" name="date" value={this.state.date} onChange={this.handleChange}/>
-                    </label>
+                    <div className="addReport__container">
+                        <h3>Add your daily report here</h3>
+                    </div>
 
-                    <form onSubmit={this.handleSubmitReport.bind(this)}>
-
-                        {this.state.date &&
-                        <h3>{this.state.date}</h3>
-                        }
-
-                        {/* b r e a k f a s t */}
+                    <div className="addReport__container">
                         <label>
-                            <div className="addMeal">
-                                <div><h3>Breakfast</h3></div>
-                                <input type="text" name="breakfastInput" placeholder="Search food"
-                                       value={this.state.breakfastInput}
-                                       onChange={(e) => this.handleChange(e)}/>
-                            </div>
+                            <input type="date" name="date" value={this.state.date} onChange={this.handleChange}/>
                         </label>
 
-                        <button onClick={(e) => this.handleClick(e, "breakfastMeal")}>Find</button>
+                        <form onSubmit={this.handleSubmitReport.bind(this)}>
 
-                        {this.state.showBreakfastList &&
-                        <ul className="result__list">{this.state.breakfastMeal && this.state.breakfastMeal.map((el, index) => {
-                            return <div
-                                key={el.food.foodId + index} name="breakfast"
-                                onClick={e => this.handleListItemClick(e, "breakfast", el.food.foodId)}>
-                                {el.food.label.toLowerCase()}
-
-                                <div>
-                                    {!isNaN(Math.ceil(el.food.nutrients.ENERC_KCAL)) &&
-                                    Math.ceil(el.food.nutrients.ENERC_KCAL) + " kcal"}
-
-                                    {!isNaN(Math.ceil(el.food.nutrients.PROCNT)) && " | " +
-                                    Math.ceil(el.food.nutrients.PROCNT) + " g protein"}
-
-                                    {!isNaN(Math.ceil(el.food.nutrients.CHOCDF)) && " | " +
-                                    Math.ceil(el.food.nutrients.CHOCDF) + " g carbs"}
-
-                                    {!isNaN(Math.ceil(el.food.nutrients.FAT)) && " | " +
-                                    Math.ceil(el.food.nutrients.FAT) + " g fat "}
+                            {/* b r e a k f a s t */}
+                            <label>
+                                <div className="addMeal">
+                                    <div><h3>Breakfast</h3></div>
+                                    <input type="text" name="breakfastInput" placeholder="Search food"
+                                           value={this.state.breakfastInput}
+                                           onChange={(e) => this.handleChange(e)}/>
                                 </div>
+                            </label>
 
-                            </div>;
-                        })}
-                        </ul>
-                        }
+                            <button onClick={(e) => this.handleClick(e, "breakfastMeal")}>Find</button>
 
-                        {/* l u n c h */}
-                        <label>
-                            <div className="addMeal">
-                                <div><h3>Lunch</h3></div>
-                                <input type="text" name="lunchInput" placeholder="Search food"
-                                       value={this.state.lunchInput}
-                                       onChange={this.handleChange}/>
-                            </div>
-                        </label>
-                        <button onClick={(e) => this.handleClick(e, "lunchMeal")}>Find</button>
+                            {this.state.showBreakfastList &&
+                            <ul className="result__list">{this.state.breakfastMeal && this.state.breakfastMeal.map((el, index) => {
 
-                        {this.state.showLunchList &&
-                        <ul className="result__list">{this.state.lunchMeal && this.state.lunchMeal.map((el, index) => {
-                            return <div
-                                key={el.food.foodId + index} name="lunch"
-                                onClick={e => this.handleListItemClick(e, "lunch", el.food.foodId)}>
-                                {el.food.label.toLowerCase()}
+                                return <div
+                                    key={el.food.foodId + index} name="breakfast"
+                                    onClick={e => this.handleListItemClick(e, "breakfast", el.food.foodId)}>
+                                    {el.food.label.toLowerCase()}
 
-                                <div>
-                                    {!isNaN(Math.ceil(el.food.nutrients.ENERC_KCAL)) &&
-                                    Math.ceil(el.food.nutrients.ENERC_KCAL) + " kcal"}
+                                    <div>
+                                        {!isNaN(Math.ceil(el.food.nutrients.ENERC_KCAL)) &&
+                                        Math.ceil(el.food.nutrients.ENERC_KCAL) + " kcal"}
 
-                                    {!isNaN(Math.ceil(el.food.nutrients.PROCNT)) && " | " +
-                                    Math.ceil(el.food.nutrients.PROCNT) + " g protein"}
+                                        {!isNaN(Math.ceil(el.food.nutrients.PROCNT)) && " | " +
+                                        Math.ceil(el.food.nutrients.PROCNT) + " g protein"}
 
-                                    {!isNaN(Math.ceil(el.food.nutrients.CHOCDF)) && " | " +
-                                    Math.ceil(el.food.nutrients.CHOCDF) + " g carbs"}
+                                        {!isNaN(Math.ceil(el.food.nutrients.CHOCDF)) && " | " +
+                                        Math.ceil(el.food.nutrients.CHOCDF) + " g carbs"}
 
-                                    {!isNaN(Math.ceil(el.food.nutrients.FAT)) && " | " +
-                                    Math.ceil(el.food.nutrients.FAT) + " g fat "}
+                                        {!isNaN(Math.ceil(el.food.nutrients.FAT)) && " | " +
+                                        Math.ceil(el.food.nutrients.FAT) + " g fat "}
+                                    </div>
+
+                                </div>;
+
+                            })}
+
+                            </ul>
+                            }
+
+
+                            {/* l u n c h */}
+                            <label>
+                                <div className="addMeal">
+                                    <div><h3>Lunch</h3></div>
+                                    <input type="text" name="lunchInput" placeholder="Search food"
+                                           value={this.state.lunchInput}
+                                           onChange={this.handleChange}/>
                                 </div>
+                            </label>
+                            <button onClick={(e) => this.handleClick(e, "lunchMeal")}>Find</button>
 
-                            </div>;
-                        })}
+                            {this.state.showLunchList &&
+                            <ul className="result__list">{this.state.lunchMeal && this.state.lunchMeal.map((el, index) => {
+                                return <div
+                                    key={el.food.foodId + index} name="lunch"
+                                    onClick={e => this.handleListItemClick(e, "lunch", el.food.foodId)}>
+                                    {el.food.label.toLowerCase()}
+
+                                    <div>
+                                        {!isNaN(Math.ceil(el.food.nutrients.ENERC_KCAL)) &&
+                                        Math.ceil(el.food.nutrients.ENERC_KCAL) + " kcal"}
+
+                                        {!isNaN(Math.ceil(el.food.nutrients.PROCNT)) && " | " +
+                                        Math.ceil(el.food.nutrients.PROCNT) + " g protein"}
+
+                                        {!isNaN(Math.ceil(el.food.nutrients.CHOCDF)) && " | " +
+                                        Math.ceil(el.food.nutrients.CHOCDF) + " g carbs"}
+
+                                        {!isNaN(Math.ceil(el.food.nutrients.FAT)) && " | " +
+                                        Math.ceil(el.food.nutrients.FAT) + " g fat "}
+                                    </div>
+
+                                </div>;
+                            })}
 
 
-                        </ul>
-                        }
+                            </ul>
+                            }
 
-                        {/* d i n n e r */}
-                        <label>
-                            <div className="addMeal">
-                                <div><h3>Dinner</h3></div>
-                                <input type="text" name="dinnerInput" placeholder="Search food"
-                                       value={this.state.dinnerInput}
-                                       onChange={this.handleChange}/>
-                            </div>
-                        </label>
-                        <button onClick={(e) => this.handleClick(e, "dinnerMeal")}>Find</button>
-
-                        {this.state.showDinnerList &&
-                        <ul className="result__list">{this.state.dinnerMeal && this.state.dinnerMeal.map((el, index) => {
-                            return <div
-                                key={el.food.foodId + index} name="dinner"
-                                onClick={e => this.handleListItemClick(e, "dinner", el.food.foodId)}>
-                                {el.food.label.toLowerCase()}
-
-                                <div>
-                                    {!isNaN(Math.ceil(el.food.nutrients.ENERC_KCAL)) &&
-                                    Math.ceil(el.food.nutrients.ENERC_KCAL) + " kcal"}
-
-                                    {!isNaN(Math.ceil(el.food.nutrients.PROCNT)) && " | " +
-                                    Math.ceil(el.food.nutrients.PROCNT) + " g protein"}
-
-                                    {!isNaN(Math.ceil(el.food.nutrients.CHOCDF)) && " | " +
-                                    Math.ceil(el.food.nutrients.CHOCDF) + " g carbs"}
-
-                                    {!isNaN(Math.ceil(el.food.nutrients.FAT)) && " | " +
-                                    Math.ceil(el.food.nutrients.FAT) + " g fat "}
+                            {/* d i n n e r */}
+                            <label>
+                                <div className="addMeal">
+                                    <div><h3>Dinner</h3></div>
+                                    <input type="text" name="dinnerInput" placeholder="Search food"
+                                           value={this.state.dinnerInput}
+                                           onChange={this.handleChange}/>
                                 </div>
+                            </label>
+                            <button onClick={(e) => this.handleClick(e, "dinnerMeal")}>Find</button>
 
-                            </div>;
-                        })}
-                        </ul>
-                        }
+                            {this.state.showDinnerList &&
+                            <ul className="result__list">{this.state.dinnerMeal && this.state.dinnerMeal.map((el, index) => {
+                                return <div
+                                    key={el.food.foodId + index} name="dinner"
+                                    onClick={e => this.handleListItemClick(e, "dinner", el.food.foodId)}>
+                                    {el.food.label.toLowerCase()}
 
-                        <input type="submit"/>
-                    </form>
+                                    <div>
+                                        {!isNaN(Math.ceil(el.food.nutrients.ENERC_KCAL)) &&
+                                        Math.ceil(el.food.nutrients.ENERC_KCAL) + " kcal"}
+
+                                        {!isNaN(Math.ceil(el.food.nutrients.PROCNT)) && " | " +
+                                        Math.ceil(el.food.nutrients.PROCNT) + " g protein"}
+
+                                        {!isNaN(Math.ceil(el.food.nutrients.CHOCDF)) && " | " +
+                                        Math.ceil(el.food.nutrients.CHOCDF) + " g carbs"}
+
+                                        {!isNaN(Math.ceil(el.food.nutrients.FAT)) && " | " +
+                                        Math.ceil(el.food.nutrients.FAT) + " g fat "}
+                                    </div>
+
+                                </div>;
+                            })}
+                            </ul>
+                            }
+
+                            <input type="submit" value={'Send for ' + this.state.date}/>
+                        </form>
+                    </div>
 
 
                 </div>
@@ -331,6 +336,9 @@ class AddReport extends React.Component {
                     </div>
                     <div className="addReport__container">
                         <h3>Your daily calorie need is: {this.props.dailyNeed}</h3>
+                    </div>
+                    <div className="addReport__container">
+                        <Battery/>
                     </div>
                 </div>
 

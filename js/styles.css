@@ -76,9 +76,11 @@ input, select {
   background-color: white; }
 
 input[type=submit] {
+  width: 85%;
   background-color: #FF991F;
   border-radius: 1%;
-  color: #F0F0F0; }
+  color: #F0F0F0;
+  border: none; }
 
 input:focus, select:focus {
   border: .1rem solid #F8F8F8; }
@@ -95,7 +97,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: greenyellow;
+  background-color: #F0F0F0;
   margin: .4rem;
   border-radius: 1%;
   /* Safari */ }
@@ -197,20 +199,6 @@ form {
   100% {
     transform: rotate(360deg); } }
 
-.popularFood__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  background-color: #F0F0F0;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  text-align: center; }
-  .popularFood__container div {
-    background-color: transparent; }
-  .popularFood__container div:hover {
-    background-color: #C7E884; }
-
 .addMeal {
   display: flex;
   flex-direction: column;
@@ -228,16 +216,48 @@ form {
   margin-top: 0;
   margin-bottom: 0; }
 
+input[type=date] {
+  margin: 0 auto;
+  width: 100%;
+  font-family: 'Mukta', sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  background-color: #F0F0F0;
+  outline: none;
+  border: 0;
+  left: 50%; }
+  input[type=date]::-webkit-clear-button {
+    display: none; }
+  input[type=date]::-webkit-calendar-picker-indicator {
+    font-size: 18px;
+    color: #FF991F;
+    border-radius: 50%; }
+    input[type=date]::-webkit-calendar-picker-indicator:hover {
+      background-color: #fff6eb;
+      color: black;
+      cursor: pointer; }
+    input[type=date]::-webkit-calendar-picker-indicator:active {
+      color: blue; }
+
 .dailyReport__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: yellowgreen;
+  background-color: #F0F0F0;
   margin: .4rem;
   border-radius: 2.4%; }
   .dailyReport__container h3 {
     padding-top: 1rem;
     padding-bottom: 1rem; }
+  .dailyReport__container .date__container {
+    border: 2px solid #FF991F;
+    width: 85%;
+    text-align: center;
+    padding: 2%;
+    margin: 2%;
+    border-radius: 2%; }
+  .dailyReport__container .date__container:hover {
+    background-color: #FF991F; }
   .dailyReport__container .report__list {
     width: 85%;
     text-align: center; }
@@ -259,7 +279,7 @@ form {
 .battery__container {
   display: flex;
   justify-content: center;
-  background-color: yellowgreen;
+  background-color: #F0F0F0;
   margin: .4rem;
   border-radius: 2.4%; }
   .battery__container i {
@@ -270,13 +290,12 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center; }
-  .container__flex--user .startButton {
-    background-color: red; }
   .container__flex--user h3 {
     padding-top: 1rem;
     padding-bottom: 1rem; }
   .container__flex--user .form__user {
     display: flex;
+    width: 65%;
     background-color: #F0F0F0;
     flex-direction: column;
     align-items: center;
@@ -287,12 +306,15 @@ form {
     padding-bottom: 2%; }
   .container__flex--user label[for=activity] p {
     text-align: center; }
+  .container__flex--user input[type=submit] {
+    width: 100%;
+    text-align: center; }
 
 .user__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: greenyellow;
+  background-color: #F0F0F0;
   margin: .4rem;
   border-radius: 2.4%; }
   .user__container h3 {
