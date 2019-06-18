@@ -25,9 +25,7 @@ class AddReport extends React.Component {
                 dinner: []
             },
 
-            breakfastNutrients: '',
-            lunchNutrients: '',
-            dinnerNutrients: '',
+            total: 0,
 
             showBreakfastList: false,
             showLunchList: false,
@@ -132,7 +130,12 @@ class AddReport extends React.Component {
             return el.food.foodId === foodId
         });
 
+        console.log(choosen, 'chooosen');
+        const choosenCalorie = choosen[0].food.nutrients.ENERC_KCAL;
+        let total = this.state.total + choosenCalorie;
+
         const eatenFood = {...this.state.eatenFood}; // state copied
+
 
         for (const meal in eatenFood) {
             if (meal === mealName) {
@@ -144,16 +147,18 @@ class AddReport extends React.Component {
             [input]: "",
             [showList]: false,
             eatenFood: eatenFood,
+            total: total,
         })
     };
 
     handleSubmitReport = (e) => {
         e.preventDefault();
 
+        const {date, eatenFood, total} = this.state;
         const dailyReport = {};
-        const date = this.state.date;
-        const eatenFood = this.state.eatenFood;
+
         dailyReport.date = date;
+        dailyReport.total = total;
         dailyReport.eatenFood = eatenFood;
 
         if (typeof this.props.addToHistory === "function") {
@@ -164,8 +169,9 @@ class AddReport extends React.Component {
             eatenFood: {
                 breakfast: [],
                 lunch: [],
-                dinner: []
-            }
+                dinner: [],
+            },
+            total: 0
         });
 
         alert('The form of ' + this.state.date + ' has been correctly submitted');
@@ -175,6 +181,8 @@ class AddReport extends React.Component {
     render() {
 
         const eatenFood = this.state.eatenFood;
+
+        console.log(this.state.loaderVisibility, 'loaded');
 
         return (
 
@@ -187,7 +195,8 @@ class AddReport extends React.Component {
 
                     <DailyReport eatenFood={this.state.eatenFood}
                                  date={this.state.date}
-                                 dailyNeed={this.props.dailyNeed}/>
+                                 dailyNeed={this.props.dailyNeed}
+                                 total={this.state.total}/>
                 </div>
 
                 <div>

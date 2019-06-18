@@ -55,6 +55,8 @@ class DailyReport extends React.Component {
                 <ul className="report__list">
                     <h4>Total</h4>
 
+                    {this.props.total}
+
                     {this.props.eatenFood.breakfast &&
 
                     this.props.eatenFood.breakfast.map((el, index) => {

@@ -5,6 +5,7 @@ import FormUser from './Components/FormUser.jsx';
 import AddReport from './Components/AddReport.jsx';
 import UserDetails from './Components/UserDetails.jsx';
 import Archive from './Components/Archive.jsx';
+import ArchiveSingle from './Components/ArchiveSingle.jsx';
 import style from './../styles/main.scss';
 import {HashRouter, Route, Switch} from 'react-router-dom';
 
@@ -111,6 +112,11 @@ class App extends React.Component {
                                         <Archive history={this.state.history}/>
                                     )
                                 }}/>
+                                <Route exact path='/archive/:date' render={() => {
+                                    return (
+                                        <ArchiveSingle props={this.props}/>
+                                    )
+                                }} />
                                 <Route exact path='/user' render={() => {
                                     return (
                                         <UserDetails dailyNeed={this.state.userDetails.dailyNeed}
