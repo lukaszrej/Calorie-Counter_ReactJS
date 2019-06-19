@@ -26,7 +26,6 @@ class App extends React.Component {
 
             formSubmitted: false,
             showReportSite: false,
-            // userDetails: localStorage.getItem('userDetails') || null
         }
     }
 
@@ -109,14 +108,15 @@ class App extends React.Component {
                                 }}/>
                                 <Route exact path='/archive' render={() => {
                                     return (
-                                        <Archive history={this.state.history}/>
+                                        <Archive history={this.state.history}
+                                                 dailyNeed={this.state.userDetails.dailyNeed}/>
                                     )
                                 }}/>
                                 <Route exact path='/archive/:date' render={() => {
                                     return (
                                         <ArchiveSingle props={this.props}/>
                                     )
-                                }} />
+                                }}/>
                                 <Route exact path='/user' render={() => {
                                     return (
                                         <UserDetails dailyNeed={this.state.userDetails.dailyNeed}

@@ -29,8 +29,6 @@ class DailyReport extends React.Component {
                     <h4>Lunch</h4>
                     {this.props.eatenFood.lunch.map((el, index) => {
 
-                        console.log(el.map((el) => el.food.foodId), 'elllID breakfast');
-
                         return <div key={el.map((el) => el.food.foodId + index)}>
                             {el[0].food.label.toLowerCase()}
                             <div>{Math.ceil(el[0].food.nutrients.ENERC_KCAL) + " kcal"}</div>
@@ -42,33 +40,17 @@ class DailyReport extends React.Component {
                 <ul className="report__list">
                     <h4>Dinner</h4>
                     {this.props.eatenFood.dinner.map((el, index) => {
+
                         return <div key={el.map((el) => el.food.foodId + index)}>
                             {el[0].food.label.toLowerCase()}
-                            <div>{Math.ceil(el[0].food.nutrients.ENERC_KCAL) + " kcal"}
-                                {this.sum.bind(this)}
-                            </div>
+                            <div>{Math.ceil(el[0].food.nutrients.ENERC_KCAL) + " kcal"}</div>
                         </div>
 
                     })}
                 </ul>
 
-                <ul className="report__list">
-                    <h4>Total</h4>
-
-                    {this.props.total}
-
-                    {this.props.eatenFood.breakfast &&
-
-                    this.props.eatenFood.breakfast.map((el, index) => {
-
-                        return <div key={el.map((el) => el.food.foodId + index)}>
-                            {Math.ceil(el[0].food.nutrients.ENERC_KCAL) + " kcal"}
-                        </div>
-
-                    })
-                    }
-
-
+                <ul className="addReport__container">
+                    <h4>Total: <span>{this.props.total}</span></h4>
                 </ul>
 
             </div>

@@ -130,8 +130,7 @@ class AddReport extends React.Component {
             return el.food.foodId === foodId
         });
 
-        console.log(choosen, 'chooosen');
-        const choosenCalorie = choosen[0].food.nutrients.ENERC_KCAL;
+        const choosenCalorie = Math.ceil(choosen[0].food.nutrients.ENERC_KCAL);
         let total = this.state.total + choosenCalorie;
 
         const eatenFood = {...this.state.eatenFood}; // state copied
@@ -154,8 +153,8 @@ class AddReport extends React.Component {
     handleSubmitReport = (e) => {
         e.preventDefault();
 
-        const {date, eatenFood, total} = this.state;
         const dailyReport = {};
+        const {date, eatenFood, total} = this.state;
 
         dailyReport.date = date;
         dailyReport.total = total;
@@ -180,10 +179,6 @@ class AddReport extends React.Component {
 
     render() {
 
-        const eatenFood = this.state.eatenFood;
-
-        console.log(this.state.loaderVisibility, 'loaded');
-
         return (
 
             <div className="dashboard">
@@ -200,9 +195,6 @@ class AddReport extends React.Component {
                 </div>
 
                 <div>
-
-                    {this.state.loaderVisibility && <div className="loader"></div>}
-
                     <div className="addReport__container">
                         <h3>Add your daily report here</h3>
                     </div>
@@ -211,6 +203,8 @@ class AddReport extends React.Component {
                         <label>
                             <input type="date" name="date" value={this.state.date} onChange={this.handleChange}/>
                         </label>
+
+                        {this.state.loaderVisibility && <div className="loader"></div>}
 
                         <form onSubmit={this.handleSubmitReport.bind(this)}>
 

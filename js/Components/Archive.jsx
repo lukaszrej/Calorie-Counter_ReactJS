@@ -1,10 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-
 function Archive(props) {
 
-    console.log(props.history, 'historia z archive');
+    console.log(props.history, 'history (archive)');
 
     return (
         <div className="addReport__container">
@@ -14,30 +13,20 @@ function Archive(props) {
                 return (
                     <div>
                         <Link to={`/archive/${el.date}`}>
-                            <p>{el.date}</p>
-                            <p>{el.total}</p>
+                            <p>{el.date && el.date}</p>
+                            {el.eatenFood.breakfast && el.eatenFood.breakfast.map((element) => {
+                                return <p>{element[0].food.label}</p>
+                            })}
+                            {el.eatenFood.lunch && el.eatenFood.lunch.map((element) => {
+                                return <p>{element[0].food.label}</p>
+                            })}
+                            {el.eatenFood.dinner && el.eatenFood.dinner.map((element) => {
+                                return <p>{element[0].food.label}</p>
+                            })}
+                            <p>Your daily calorie intake is: {el.total && el.total} kcal from {props.dailyNeed}</p>
+                            <p>Daily calorie intake to daily calorie need:
+                                { Number((Math.ceil(el.total) / props.dailyNeed) * 100).toFixed(2) + "%"}</p>
                         </Link>
-
-
-
-
-
-
-                        {/*{*/}
-
-                        {/*    el.eatenFood.breakfast.map((element) => {*/}
-
-                        {/*        console.log(element[0], 'elemennnt0')*/}
-
-                        {/*        return <div> {element[0].food.label} </div>*/}
-                        {/*    })*/}
-
-
-                        {/*}*/}
-
-                        {/*{console.log(el.eatenFood.breakfast.map((element) => element.map((item) =>*/}
-                        {/*    item.food.label)), 'item label[0]find')}*/}
-
                     </div>
                 )
             })}
