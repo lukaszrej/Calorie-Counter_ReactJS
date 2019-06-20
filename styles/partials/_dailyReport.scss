@@ -14,15 +14,12 @@
 
   .date__container {
     border: 2px solid $inputSubmitBGColor;
+    background-color: $inputSubmitBGColor;
     width: 85%;
     text-align: center;
     padding: 2%;
     margin: 2%;
     border-radius: 2%;
-  }
-
-  .date__container:hover {
-    background-color: $inputSubmitBGColor;
   }
 
   .report__list {
@@ -45,9 +42,6 @@
       border-radius: 5px;
     }
 
-    div:hover {
-      background-color: #C7E884;
-    }
   }
 
 }

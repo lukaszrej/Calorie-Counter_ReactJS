@@ -7,7 +7,7 @@ function Nav() {
             <div className="container">
                 <div/>
                 <div className="flex">
-                    <h1><i className="fas fa-carrot"/> Calorie Counter</h1>
+                    <NavLink exact to="/"><h1><i className="fas fa-carrot"/> Calorie Counter</h1></NavLink>
                     <nav className="nav">
                         <NavLink className="nav nav__link" exact to="/"><i
                             className="material-icons">home</i>Dashboard</NavLink>

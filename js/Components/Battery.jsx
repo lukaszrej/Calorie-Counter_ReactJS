@@ -4,7 +4,10 @@ function Battery(props) {
 
     return (
         <div className="battery__container">
-            <div><i className="material-icons">battery_charging_full</i></div>
+            <div>
+                {props.total >= 0 &&
+                <div><i className="material-icons">battery_charging_full</i></div>}
+            </div>
         </div>
     )
 }

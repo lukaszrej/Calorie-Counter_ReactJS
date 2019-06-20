@@ -50,7 +50,7 @@ class DailyReport extends React.Component {
                 </ul>
 
                 <ul className="addReport__container">
-                    <h4>Total: <span>{this.props.total}</span></h4>
+                    <h4>Total: <span>{this.props.total} kcal</span></h4>
                 </ul>
 
             </div>

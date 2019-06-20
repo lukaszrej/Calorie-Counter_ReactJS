@@ -51,7 +51,7 @@ form {
       cursor: pointer;
     }
 
-    div:hover {
+    div:hover + div > div:hover {
       background-color: $apiResultsBGHoverColor;
     }
 
@@ -134,17 +134,17 @@ form {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: rgba(black, .5);
+    background: rgba(black, .3);
     left: 0;
     top: 0;
     z-index: 999;
 
     &:after {
-      border: 1.6rem solid #f3f3f3;
+      border: 1.2rem solid #f3f3f3;
       border-radius: 50%;
-      border-top: 1.6rem solid $inputSubmitBGColor;
-      width: 12rem;
-      height: 12rem;
+      border-top: 1.2rem solid $inputSubmitBGColor;
+      width: 7rem;
+      height: 7rem;
       display: block;
       -webkit-animation: spin 2s linear infinite; /* Safari */
       animation: spin 2s linear infinite;
@@ -179,25 +179,6 @@ form {
   }
 
 }
-
-//.popularFood__container {
-//  display: flex;
-//  flex-direction: column;
-//  justify-content: space-between;
-//  width: 100%;
-//  background-color: #F0F0F0;
-//  margin-bottom: 1rem;
-//  margin-top: 1rem;
-//  text-align: center;
-//
-//  div {
-//    background-color: transparent;
-//  }
-//
-//  div:hover {
-//    background-color: #C7E884;
-//  }
-//}
 
 .addMeal {
   display: flex;

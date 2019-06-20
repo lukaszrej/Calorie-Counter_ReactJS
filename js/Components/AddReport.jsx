@@ -8,7 +8,7 @@ class AddReport extends React.Component {
         super(props);
         this.state = {
 
-            date: '2019-06-15',
+            date: '2019-06-20',
 
             breakfastMeal: '',
             breakfastInput: '',
@@ -338,10 +338,11 @@ class AddReport extends React.Component {
                         <h3>Charge your batteries</h3>
                     </div>
                     <div className="addReport__container">
-                        <h3>Your daily calorie need is: {this.props.dailyNeed}</h3>
+                        <h3>Your daily calorie need is: {this.props.dailyNeed} kcal</h3>
+                        <h3>Your daily calorie intake is: {this.state.total} kcal</h3>
                     </div>
                     <div className="addReport__container">
-                        <Battery/>
+                        <Battery total={this.state.total}/>
                     </div>
                 </div>
 
