@@ -14,6 +14,7 @@ input[type=submit] {
   border-radius: 1%;
   color: #F0F0F0;
   border: none;
+  margin-bottom: 1.5rem;
 }
 
 input:focus, select:focus {
@@ -36,7 +37,7 @@ form {
   background-color: #F0F0F0;
 
   margin: .4rem;
-  border-radius: 1%;
+  border-radius: 4%;
 
   .result__list {
     background-color: $apiResultsBGColor;
@@ -84,7 +85,6 @@ form {
     width: 85%;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 4%;
     font-size: 16px;
     background-color: white;
     //background-image: url('searchicon.png');
@@ -106,7 +106,6 @@ form {
     padding: .6rem;
     margin: 0.1em;
     border: 0.15em solid $buttonColor;
-    border-radius: 4%;
     box-sizing: border-box;
     text-decoration: none;
     background-color: $buttonColor;
@@ -215,9 +214,7 @@ input[type=date] {
   &::-webkit-clear-button {
     display: none;
   }
-  //&::-webkit-inner-spin-button {
-  //  height: 30px;
-  //}
+
   &::-webkit-calendar-picker-indicator {
     font-size: 18px;
     color: $inputSubmitBGColor;

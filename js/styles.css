@@ -34,7 +34,19 @@ body {
   width: 100%;
   font-weight: 300;
   border-bottom: 0.6px solid #FF9966;
-  background-color: #FFFFFF; }
+  background-color: #FFFFFF;
+  /* unvisited links */
+  /* visited links */
+  /* user hovers */
+  /* active links */ }
+  .header a:link {
+    color: black; }
+  .header a:visited {
+    color: black; }
+  .header a:hover {
+    font-weight: bold; }
+  .header a:active {
+    color: #FF9966; }
   .header .container {
     display: grid;
     grid-template-columns: 5% auto 5%; }
@@ -80,7 +92,8 @@ input[type=submit] {
   background-color: #FF991F;
   border-radius: 1%;
   color: #F0F0F0;
-  border: none; }
+  border: none;
+  margin-bottom: 1.5rem; }
 
 input:focus, select:focus {
   border: .1rem solid #F8F8F8; }
@@ -99,7 +112,7 @@ form {
   align-items: center;
   background-color: #F0F0F0;
   margin: .4rem;
-  border-radius: 1%;
+  border-radius: 4%;
   /* Safari */ }
   .addReport__container .result__list {
     background-color: #C7FFA0;
@@ -131,7 +144,6 @@ form {
     width: 85%;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 4%;
     font-size: 16px;
     background-color: white;
     text-align: center;
@@ -148,7 +160,6 @@ form {
     padding: .6rem;
     margin: 0.1em;
     border: 0.15em solid #CCCCCC;
-    border-radius: 4%;
     box-sizing: border-box;
     text-decoration: none;
     background-color: #CCCCCC;
@@ -314,6 +325,31 @@ input[type=date] {
   .container__flex--user input[type=submit] {
     width: 100%;
     text-align: center; }
+
+.archive__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F0F0F0;
+  margin: .4rem;
+  border-radius: 1%; }
+  .archive__container h3 {
+    padding-top: 1rem;
+    padding-bottom: 1rem; }
+  .archive__container .archive__panels {
+    display: flex;
+    flex-direction: row; }
+    .archive__container .archive__panels .archive__single {
+      color: black;
+      background-color: #C7E884;
+      margin: 1rem;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 4%;
+      box-shadow: 10px 10px 28px -4px rgba(0, 0, 0, 0.67); }
+      .archive__container .archive__panels .archive__single h3 {
+        padding-top: .2rem;
+        padding-bottom: .2rem; }
 
 .user__container {
   display: flex;

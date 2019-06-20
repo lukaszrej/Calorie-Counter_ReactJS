@@ -4,6 +4,11 @@
   border-bottom: .6px solid $navBorderColor;
   background-color: $navBGColor;
 
+  a:link { color: black } /* unvisited links */
+  a:visited { color: black } /* visited links */
+  a:hover { font-weight: bold } /* user hovers */
+  a:active { color: $navBorderColor } /* active links */
+
   .container {
     display: grid;
     grid-template-columns: 5% auto 5%;
