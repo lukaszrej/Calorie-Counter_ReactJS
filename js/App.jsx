@@ -88,7 +88,6 @@ class App extends React.Component {
                                 <Route exact path='/' render={() => {
                                     return (
                                         <div>
-
                                             {this.state.showReportSite &&
                                             <AddReport dailyNeed={this.state.userDetails.dailyNeed}
                                                        setFormSubmitted={this.setFormSubmitted.bind(this)}
@@ -102,7 +101,6 @@ class App extends React.Component {
                                                       setFormSubmitted={this.setFormSubmitted.bind(this)}
                                                       updateUser={this.updateUser.bind(this)}
                                                       userDetails={this.state.userDetails}/>}
-
                                         </div>
                                     )
                                 }}/>
@@ -114,7 +112,9 @@ class App extends React.Component {
                                 }}/>
                                 <Route exact path='/archive/:date' render={() => {
                                     return (
-                                        <ArchiveSingle props={this.props}/>
+                                        <ArchiveSingle
+                                            historyLocal={this.state.history}
+                                            dailyNeed={this.state.userDetails.dailyNeed}/>
                                     )
                                 }}/>
                                 <Route exact path='/user' render={() => {

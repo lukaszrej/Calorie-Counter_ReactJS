@@ -8,6 +8,10 @@ function Battery(props) {
                 {props.total >= 0 &&
                 <div><i className="material-icons">battery_charging_full</i></div>}
             </div>
+            <div>
+
+
+            </div>
         </div>
     )
 }
