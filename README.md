@@ -24,6 +24,10 @@ In order to run this project you need to:
 
 ### Page preview (coming soon)
 
-![View](./assets/img01.jpg "View..")
+![View](./assets/CalorieCounter_001.png "Start view")
 
-![View](./assets/img02.jpg "View..")
+![View](./assets/CalorieCounter_002.png "Main view")
+
+![View](./assets/CalorieCounter_003.png "API results view")
+
+![View](./assets/CalorieCounter_004.png "Current report view")
