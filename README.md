@@ -21,8 +21,9 @@ In order to run this project you need to:
 * Searching food using external API
 * Adding eaten products to a daily report
 * Viewing archives of added daily reports
+* Viewing charts of added daily reports (in progress)
 
-### Page preview (coming soon)
+### Page preview
 
 ![View](./assets/CalorieCounter_001.png "Start view")
 
@@ -31,3 +32,7 @@ In order to run this project you need to:
 ![View](./assets/CalorieCounter_003.png "API results view")
 
 ![View](./assets/CalorieCounter_004.png "Current report view")
+
+![View](./assets/CalorieCounter_005.png "Archives view")
+
+![View](./assets/CalorieCounter_006.png "Archive Single view")
