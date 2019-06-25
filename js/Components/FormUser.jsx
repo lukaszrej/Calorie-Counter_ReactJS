@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 class FormUser extends React.Component {
     constructor(props) {
@@ -47,6 +48,8 @@ class FormUser extends React.Component {
         if (typeof updateUser === 'function') {
             updateUser(newCurrUserDetails);
         }
+
+        this.props.history.push('/dashboard'); // withRouter
     };
 
     render() {
@@ -107,4 +110,4 @@ class FormUser extends React.Component {
     }
 }
 
-export default FormUser;
+export default withRouter(FormUser);

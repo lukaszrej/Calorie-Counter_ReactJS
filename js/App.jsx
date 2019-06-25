@@ -2,12 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Nav from './Components/Nav.jsx';
 import FormUser from './Components/FormUser.jsx';
-import AddReport from './Components/AddReport.jsx';
-import UserDetails from './Components/UserDetails.jsx';
 import Archive from './Components/Archive.jsx';
 import ArchiveSingle from './Components/ArchiveSingle.jsx';
 import style from './../styles/main.scss';
 import {HashRouter, Route, Switch} from 'react-router-dom';
+import MainView from "./Components/MainView.jsx";
 
 class App extends React.Component {
     constructor(props) {
@@ -88,19 +87,32 @@ class App extends React.Component {
                                 <Route exact path='/' render={() => {
                                     return (
                                         <div>
-                                            {this.state.showReportSite &&
-                                            <AddReport dailyNeed={this.state.userDetails.dailyNeed}
-                                                       setFormSubmitted={this.setFormSubmitted.bind(this)}
-                                                       addToHistory={this.addToHistory.bind(this)}
-
-                                                       userDetails={this.state.userDetails}
-                                            />
-                                            }
                                             {!this.state.formSubmitted &&
                                             <FormUser setDailyNeed={this.setDailyNeed.bind(this)}
                                                       setFormSubmitted={this.setFormSubmitted.bind(this)}
                                                       updateUser={this.updateUser.bind(this)}
-                                                      userDetails={this.state.userDetails}/>}
+                                                      userDetails={this.state.userDetails}
+                                            />}
+                                        </div>
+                                    )
+                                }}/>
+
+                                <Route path='/dashboard' render={() => {
+                                    return (
+                                        <div>
+                                            <MainView
+                                                dailyNeed={this.state.userDetails.dailyNeed}
+                                                setFormSubmitted={this.setFormSubmitted.bind(this)}
+                                                addToHistory={this.addToHistory.bind(this)}
+
+                                                userDetails={this.state.userDetails}
+
+                                                setDailyNeed={this.setDailyNeed.bind(this)}
+                                                updateUser={this.updateUser.bind(this)}
+
+                                                showReportSite={this.state.showReportSite}
+                                                formSubmitted={this.state.formSubmitted}
+                                            />
                                         </div>
                                     )
                                 }}/>
@@ -115,12 +127,6 @@ class App extends React.Component {
                                         <ArchiveSingle
                                             historyLocal={this.state.history}
                                             dailyNeed={this.state.userDetails.dailyNeed}/>
-                                    )
-                                }}/>
-                                <Route exact path='/user' render={() => {
-                                    return (
-                                        <UserDetails dailyNeed={this.state.userDetails.dailyNeed}
-                                                     userDetails={this.state.userDetails}/>
                                     )
                                 }}/>
                             </Switch>
