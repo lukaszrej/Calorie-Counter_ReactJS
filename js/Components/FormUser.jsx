@@ -1,6 +1,8 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
+import getDailyNeed from './Helpers/getDailyNeed.js';
+
 class FormUser extends React.Component {
     constructor(props) {
         super(props);
@@ -28,14 +30,10 @@ class FormUser extends React.Component {
         const {weight, height, age, gender, activity} = this.state;
         const {setDailyNeed, setFormSubmitted, updateUser} = this.props;
 
-        let dailyNeedLocal = '';
-        if (gender === "Male") {
-            dailyNeedLocal = activity * (10 * weight) + (6.25 * height) - (5 * age) + 5;
-        } else {
-            dailyNeedLocal = activity * (10 * weight) + (6.25 * height) - (5 * age) - 166;
-        }
+        const dailyNeedLocal = getDailyNeed({height, weight, age, gender, activity});
 
-        let newCurrUserDetails = {weight: weight, height: height, age: age, gender: gender, activity: activity};
+        let newCurrUserDetails = {weight: weight, height: height, age: age, gender: gender,
+            activity: activity, dailyNeed: dailyNeedLocal};
 
         if (typeof setDailyNeed === "function") {
             setDailyNeed(dailyNeedLocal);

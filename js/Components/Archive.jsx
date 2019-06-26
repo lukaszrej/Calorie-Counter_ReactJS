@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 
 function Archive(props) {
 
-    console.log(props.history, 'history (archive)');
-
     return (
         <div className="archive__container">
             <h3>Archive</h3>

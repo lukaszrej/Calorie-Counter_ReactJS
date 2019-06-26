@@ -9,8 +9,6 @@ class ArchiveSingle extends Component {
 
     render() {
 
-        {console.log(this.props, 'props')}
-
         return (
             <div className="archiveSingle__container">
                 <h3>Single One</h3>
@@ -23,8 +21,9 @@ class ArchiveSingle extends Component {
                                 <Link to={`/archive/${el.date}`}>
                                     <h3>{el.date && el.date}</h3>
                                     <p>Calorie intake: {el.total && el.total} kcal</p>
-                                    <p>Calorie intake to calorie need: {Number((Math.ceil(el.total) / this.props.dailyNeed)
-                                        * 100).toFixed(2) + "%"}</p>
+                                    <p>Calorie intake to calorie
+                                        need: {Number((Math.ceil(el.total) / this.props.dailyNeed)
+                                            * 100).toFixed(2) + "%"}</p>
                                     <ul>
                                         {el.eatenFood.breakfast && el.eatenFood.breakfast.map((element) => {
                                             return <li>{element[0].food.label}</li>

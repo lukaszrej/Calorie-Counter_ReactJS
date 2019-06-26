@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {HashRouter, Route, Switch} from 'react-router-dom';
+
 import Nav from './Components/Nav.jsx';
 import FormUser from './Components/FormUser.jsx';
 import Archive from './Components/Archive.jsx';
 import ArchiveSingle from './Components/ArchiveSingle.jsx';
-import style from './../styles/main.scss';
-import {HashRouter, Route, Switch} from 'react-router-dom';
-import MainView from "./Components/MainView.jsx";
+import MainView from './Components/MainView.jsx';
 
 class App extends React.Component {
     constructor(props) {
@@ -29,6 +29,7 @@ class App extends React.Component {
     }
 
     setDailyNeed(dailyNeed) {
+
         this.setState((state) => {
 
             const newUserDetails = {...state.userDetails};//or const newUserDetails = Object.assign({}, state.userDetails);
@@ -53,13 +54,13 @@ class App extends React.Component {
     }
 
     updateUser(updatedUser) {
+
         this.setState((state) => {
             const newUserDetails = {...state.userDetails};
-            newUserDetails.weight = updatedUser.weight;
-            newUserDetails.height = updatedUser.height;
-            newUserDetails.age = updatedUser.age;
-            newUserDetails.gender = updatedUser.gender;
-            newUserDetails.activity = updatedUser.activity;
+
+            for (const key in newUserDetails) {
+                newUserDetails[key] = updatedUser[key];
+            }
 
             return ({
                 userDetails: newUserDetails
@@ -75,6 +76,7 @@ class App extends React.Component {
     }
 
     render() {
+
         return (
             <HashRouter>
 
@@ -99,21 +101,19 @@ class App extends React.Component {
 
                                 <Route path='/dashboard' render={() => {
                                     return (
-                                        <div>
-                                            <MainView
-                                                dailyNeed={this.state.userDetails.dailyNeed}
-                                                setFormSubmitted={this.setFormSubmitted.bind(this)}
-                                                addToHistory={this.addToHistory.bind(this)}
+                                        <MainView
+                                            dailyNeed={this.state.userDetails.dailyNeed}
+                                            setFormSubmitted={this.setFormSubmitted.bind(this)}
+                                            addToHistory={this.addToHistory.bind(this)}
 
-                                                userDetails={this.state.userDetails}
+                                            userDetails={this.state.userDetails}
 
-                                                setDailyNeed={this.setDailyNeed.bind(this)}
-                                                updateUser={this.updateUser.bind(this)}
+                                            setDailyNeed={this.setDailyNeed.bind(this)}
+                                            updateUser={this.updateUser.bind(this)}
 
-                                                showReportSite={this.state.showReportSite}
-                                                formSubmitted={this.state.formSubmitted}
-                                            />
-                                        </div>
+                                            showReportSite={this.state.showReportSite}
+                                            formSubmitted={this.state.formSubmitted}
+                                        />
                                     )
                                 }}/>
                                 <Route exact path='/archive' render={() => {
