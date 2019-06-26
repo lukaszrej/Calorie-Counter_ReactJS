@@ -23,6 +23,9 @@ In order to run this project you need to:
 * Viewing archives of added daily reports
 * Viewing charts of added daily reports (in progress)
 
+### GitHub.pages
+Visit the demo on github.pages: https://lukaszrej.github.io/Calorie-Counter_ReactJS/
+
 ### Page preview
 
 ![View](./assets/CalorieCounter_001.png "Start view")
