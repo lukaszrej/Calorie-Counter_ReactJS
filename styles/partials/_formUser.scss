@@ -3,6 +3,29 @@
   flex-direction: column;
   align-items: center;
 
+  input, select {
+    width: 100%;
+    font-size: 1rem;
+    padding: .3rem;
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+    border-radius: 1%;
+    background-color: white;
+  }
+
+  input:focus, select:focus {
+    border: .1rem solid #F8F8F8;
+  }
+
+  input[type=submit] {
+    width: 85%;
+    background-color: $inputSubmitBGColor;
+    border-radius: 1%;
+    color: #F0F0F0;
+    border: none;
+    margin-bottom: 1.5rem;
+  }
+
   h3 {
     font-size: 1.5rem;
     padding-top: 1.5rem;

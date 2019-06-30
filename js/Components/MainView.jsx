@@ -1,5 +1,5 @@
 import React from 'react';
-import AddReport from './AddReport.jsx';
+import AddReport from './AddReport/AddReport.jsx';
 import UserDetails from './UserDetails.jsx';
 import DailyReport from './DailyReport.jsx';
 import BatteryWrapper from './Battery/BatteryWrapper.jsx'
@@ -215,6 +215,7 @@ class MainView extends React.Component {
                            breakfastMeal={this.state.breakfastMeal}
                            lunchMeal={this.state.lunchMeal}
                            dinnerMeal={this.state.dinnerMeal}/>
+
 
                 <BatteryWrapper dailyNeed={this.props.dailyNeed}
                                 total={this.state.total}/>

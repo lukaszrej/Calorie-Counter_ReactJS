@@ -78,26 +78,6 @@ body {
       align-items: center;
       padding-bottom: .4rem; } }
 
-input, select {
-  width: 100%;
-  font-size: 1rem;
-  padding: .3rem;
-  margin-top: .3rem;
-  margin-bottom: .3rem;
-  border-radius: 1%;
-  background-color: white; }
-
-input[type=submit] {
-  width: 85%;
-  background-color: #FF991F;
-  border-radius: 1%;
-  color: #F0F0F0;
-  border: none;
-  margin-bottom: 1.5rem; }
-
-input:focus, select:focus {
-  border: .1rem solid #F8F8F8; }
-
 form {
   display: flex;
   flex-direction: column;
@@ -114,9 +94,46 @@ form {
   margin: .4rem;
   border-radius: 4%;
   /* Safari */ }
+  .addReport__container input[type=text], .addReport__container div > input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    background-color: white;
+    text-align: center;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: .6rem;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.5s ease-in-out; }
+  .addReport__container input[type=date] {
+    text-align: center; }
+  .addReport__container input[type=submit] {
+    width: 100%;
+    background-color: #FF991F;
+    border-radius: 1%;
+    color: #F0F0F0;
+    border: none;
+    padding: .6rem;
+    margin-bottom: 1.5rem; }
+  .addReport__container button {
+    display: inline-block;
+    width: 100%;
+    padding: .6rem;
+    margin: 0.1em;
+    border: 0.15em solid #CCCCCC;
+    box-sizing: border-box;
+    text-decoration: none;
+    background-color: #CCCCCC;
+    text-align: center;
+    position: relative; }
+  .addReport__container button:hover {
+    border-color: #7a7a7a; }
+  .addReport__container button:active {
+    background-color: #999999; }
   .addReport__container .result__list {
     background-color: #C7FFA0;
-    width: 85%;
+    width: 100%;
     text-align: center; }
     .addReport__container .result__list div {
       font-size: .9375rem;
@@ -135,40 +152,13 @@ form {
     padding-bottom: 1rem; }
   .addReport__container form {
     width: 100%; }
+    .addReport__container form div {
+      width: 100%; }
     .addReport__container form h3 {
       padding-top: .4rem;
       padding-bottom: .4rem; }
   .addReport__container label {
     width: 100%; }
-  .addReport__container input[type=text] {
-    width: 85%;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    font-size: 16px;
-    background-color: white;
-    text-align: center;
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: .6rem;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.5s ease-in-out; }
-  .addReport__container input[type=date] {
-    text-align: center; }
-  .addReport__container button {
-    display: inline-block;
-    width: 85%;
-    padding: .6rem;
-    margin: 0.1em;
-    border: 0.15em solid #CCCCCC;
-    box-sizing: border-box;
-    text-decoration: none;
-    background-color: #CCCCCC;
-    text-align: center;
-    position: relative; }
-  .addReport__container button:hover {
-    border-color: #7a7a7a; }
-  .addReport__container button:active {
-    background-color: #999999; }
   @media all and (max-width: 30em) {
     .addReport__container  button {
       display: block;
@@ -298,6 +288,23 @@ input[type=date] {
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .container__flex--user input, .container__flex--user select {
+    width: 100%;
+    font-size: 1rem;
+    padding: .3rem;
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+    border-radius: 1%;
+    background-color: white; }
+  .container__flex--user input:focus, .container__flex--user select:focus {
+    border: .1rem solid #F8F8F8; }
+  .container__flex--user input[type=submit] {
+    width: 85%;
+    background-color: #FF991F;
+    border-radius: 1%;
+    color: #F0F0F0;
+    border: none;
+    margin-bottom: 1.5rem; }
   .container__flex--user h3 {
     font-size: 1.5rem;
     padding-top: 1.5rem; }

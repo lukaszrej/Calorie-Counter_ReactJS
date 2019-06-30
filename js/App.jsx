@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter, Route, Switch} from 'react-router-dom';
+import style from './../styles/main.scss';
 
 import Nav from './Components/Nav.jsx';
 import FormUser from './Components/FormUser.jsx';
