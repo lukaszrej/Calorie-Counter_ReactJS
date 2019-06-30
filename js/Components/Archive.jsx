@@ -11,7 +11,7 @@ function Archive(props) {
             <div className="archive__panels">
                 {props.history.map((el) => {
                     return (
-                        <div className="archive__single">
+                        <div className="archive__single" key={el + el.index}>
                             <Link to={`/archive/${el.date}`}>
                                 <h3>{el.date && el.date}</h3>
                                 <p>Calorie intake: {el.total && el.total} kcal</p>

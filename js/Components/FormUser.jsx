@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 
 import getDailyNeed from './Helpers/getDailyNeed.js';
+import activityOptions from './Helpers/activityOptions.js';
 
 class FormUser extends React.Component {
     constructor(props) {
@@ -32,8 +33,10 @@ class FormUser extends React.Component {
 
         const dailyNeedLocal = getDailyNeed({height, weight, age, gender, activity});
 
-        let newCurrUserDetails = {weight: weight, height: height, age: age, gender: gender,
-            activity: activity, dailyNeed: dailyNeedLocal};
+        let newCurrUserDetails = {
+            weight: weight, height: height, age: age, gender: gender,
+            activity: activity, dailyNeed: dailyNeedLocal
+        };
 
         if (typeof setDailyNeed === "function") {
             setDailyNeed(dailyNeedLocal);
@@ -51,10 +54,12 @@ class FormUser extends React.Component {
     };
 
     render() {
+
         return (
             <div className="container__flex--user">
 
                 <h3>Control your calorie intake!</h3>
+
                 <h5>Tell us more about you and start using Calorie Counter.</h5>
 
                 <form className="form__user" onSubmit={this.submitForm}>
@@ -89,11 +94,12 @@ class FormUser extends React.Component {
                         <p>Physical activity level</p>
                         <div style={{display: "flex", justifyContent: "center"}}>
                             <select name="activity" value={this.state.activity} onChange={this.changeInput}>
-                                <option value="1.2">Sedentary (little or no exercise)</option>
-                                <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
-                                <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
-                                <option value="1.725">Very active (hard exercise 6-7 days a week)</option>
-                                <option value="1.9">Extra active (very hard exercise & physical job</option>
+                                {activityOptions.map((el) => {
+                                    return (
+                                        <option key={el.activityDescription + el.index}
+                                                value={el.activityValue}>{el.activityDescription}</option>
+                                    )
+                                })}
                             </select>
                         </div>
 
